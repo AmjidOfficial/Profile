@@ -2,10 +2,10 @@
   'use strict';
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer:fine)').matches;
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
-  // Mobile navigation
   const menuButton = $('.menu');
   const mobileMenu = $('.mobile-menu');
   if (menuButton && mobileMenu) {
@@ -13,14 +13,13 @@
       const open = mobileMenu.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(open));
     });
-    $$('.mobile-menu a').forEach(a => a.addEventListener('click', () => {
+    $$('.mobile-menu a').forEach(link => link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
     }));
   }
 
-  // Scroll reveal. No external animation library is required.
-  const reveals = $$('.reveal');
+  const revealItems = $$('.reveal');
   if ('IntersectionObserver' in window && !reduceMotion) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -29,25 +28,22 @@
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
-  } else {
-    reveals.forEach(el => el.classList.add('visible'));
-  }
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+    revealItems.forEach(el => observer.observe(el));
+  } else revealItems.forEach(el => el.classList.add('visible'));
 
-  // Counter animation
   const counters = $$('.counter');
   const animateCounter = el => {
     const target = Number(el.dataset.target || 0);
     const suffix = el.dataset.suffix || '';
     if (reduceMotion) { el.textContent = target + suffix; return; }
-    const duration = 1200;
     const start = performance.now();
+    const duration = 1100;
     const frame = now => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
       el.textContent = Math.round(target * eased) + suffix;
-      if (progress < 1) requestAnimationFrame(frame);
+      if (p < 1) requestAnimationFrame(frame);
     };
     requestAnimationFrame(frame);
   };
@@ -56,52 +52,78 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) { animateCounter(entry.target); obs.unobserve(entry.target); }
       });
-    }, { threshold: 0.7 });
+    }, { threshold: .65 });
     counters.forEach(el => counterObserver.observe(el));
   } else counters.forEach(animateCounter);
 
-  // Pointer depth effect for the hero card.
-  const card = $('.profile-card');
-  if (card && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
-    const stage = $('.hero-stage');
-    stage.addEventListener('pointermove', e => {
-      const r = stage.getBoundingClientRect();
+  // Active navigation and section progress.
+  const navLinks = $$('.nav-links a');
+  const sections = $$('.section-anchor');
+  const setActive = id => navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    sections.forEach(section => sectionObserver.observe(section));
+  }
+
+  const progress = $('#progress');
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const value = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+    if (progress) progress.style.height = value + '%';
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // Subtle 3D portrait interaction.
+  const portrait = $('.portrait-wrap');
+  if (portrait && finePointer && !reduceMotion) {
+    portrait.addEventListener('pointermove', e => {
+      const r = portrait.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - .5;
       const y = (e.clientY - r.top) / r.height - .5;
-      card.style.transform = `rotateY(${x * 12}deg) rotateX(${y * -10}deg)`;
+      portrait.style.transform = `perspective(900px) rotateY(${x * 8}deg) rotateX(${y * -7}deg)`;
     });
-    stage.addEventListener('pointerleave', () => {
-      card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-    });
+    portrait.addEventListener('pointerleave', () => { portrait.style.transform = ''; });
   }
 
-  // Small tilt effect for glass panels.
-  if (!reduceMotion && window.matchMedia('(pointer:fine)').matches) {
-    $$('.tilt').forEach(el => {
-      el.addEventListener('pointermove', e => {
-        const r = el.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - .5;
-        const y = (e.clientY - r.top) / r.height - .5;
-        el.style.transform = `perspective(900px) rotateX(${y * -4}deg) rotateY(${x * 5}deg) translateY(-4px)`;
+  // Magnetic buttons, kept intentionally small and calm.
+  if (finePointer && !reduceMotion) {
+    $$('.magnetic').forEach(button => {
+      button.addEventListener('pointermove', e => {
+        const r = button.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width / 2);
+        const y = e.clientY - (r.top + r.height / 2);
+        button.style.transform = `translate(${x * .08}px,${y * .08}px)`;
       });
-      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+      button.addEventListener('pointerleave', () => { button.style.transform = ''; });
     });
   }
 
-  // Cursor glow, desktop only.
+  // Cursor glow follows the pointer with a little easing.
   const glow = $('.cursor-glow');
-  if (glow && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+  if (glow && finePointer && !reduceMotion) {
     let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
     window.addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
     const move = () => {
-      x += (tx - x) * .12; y += (ty - y) * .12;
-      glow.style.left = `${x}px`; glow.style.top = `${y}px`;
+      x += (tx - x) * .1;
+      y += (ty - y) * .1;
+      glow.style.left = x + 'px';
+      glow.style.top = y + 'px';
       requestAnimationFrame(move);
     };
     requestAnimationFrame(move);
   }
 
-  // Current year.
+  // Close mobile menu with Escape.
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu) {
+      mobileMenu.classList.remove('open');
+      if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+    }
+  });
+
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 })();
