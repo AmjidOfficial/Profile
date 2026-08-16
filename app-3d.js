@@ -7,15 +7,16 @@
 
   const menuButton = $('.menu');
   const mobileMenu = $('.mobile-menu');
+  const closeMenu = () => {
+    if (!mobileMenu || !menuButton) return;
+    mobileMenu.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  };
   if (menuButton && mobileMenu) {
     menuButton.addEventListener('click', () => {
       const open = mobileMenu.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(open));
     });
-    $$('.mobile-menu a').forEach(a => a.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      menuButton.setAttribute('aria-expanded', 'false');
-    }));
   }
 
   const reveals = $$('.reveal');
@@ -27,7 +28,7 @@
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -35px 0px' });
     reveals.forEach(el => observer.observe(el));
   } else reveals.forEach(el => el.classList.add('visible'));
 
@@ -38,13 +39,13 @@
     const target = Number(el.dataset.target || 0);
     const suffix = el.dataset.suffix || '';
     if (reduceMotion) { el.textContent = target + suffix; return; }
-    const duration = 1200;
+    const duration = 1050;
     const start = performance.now();
     const frame = now => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
       el.textContent = Math.round(target * eased) + suffix;
-      if (progress < 1) requestAnimationFrame(frame);
+      if (p < 1) requestAnimationFrame(frame);
     };
     requestAnimationFrame(frame);
   };
@@ -57,10 +58,10 @@
     counters.forEach(el => counterObserver.observe(el));
   } else counters.forEach(animateCounter);
 
-  const allNavTabs = $$('.nav-tab');
+  const navTabs = $$('.nav-tab');
   const sections = $$('.page-section[id]');
   const setActiveTab = id => {
-    allNavTabs.forEach(tab => {
+    navTabs.forEach(tab => {
       const active = tab.dataset.section === id;
       tab.classList.toggle('active', active);
       if (active) tab.setAttribute('aria-current', 'page');
@@ -71,21 +72,39 @@
     const sectionObserver = new IntersectionObserver(entries => {
       const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
       if (visible) setActiveTab(visible.target.id);
-    }, { rootMargin: '-35% 0px -55% 0px', threshold: [0, .2, .5, .8] });
+    }, { rootMargin: '-34% 0px -54% 0px', threshold: [0,.15,.4,.75] });
     sections.forEach(section => sectionObserver.observe(section));
   }
-  allNavTabs.forEach(tab => tab.addEventListener('click', () => setActiveTab(tab.dataset.section)));
+  navTabs.forEach(tab => tab.addEventListener('click', () => { setActiveTab(tab.dataset.section); closeMenu(); }));
+
+  // Local, dependency-free particle field. Nothing is loaded from Google or a CDN.
+  const particleHost = $('#particles');
+  if (particleHost && !reduceMotion) {
+    const count = window.innerWidth < 650 ? 16 : window.innerWidth < 1000 ? 24 : 34;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('i');
+      p.className = 'particle';
+      p.style.left = `${Math.random() * 100}%`;
+      p.style.top = `${Math.random() * 100}%`;
+      p.style.animationDelay = `${-Math.random() * 8}s`;
+      p.style.animationDuration = `${6 + Math.random() * 8}s`;
+      frag.appendChild(p);
+    }
+    particleHost.appendChild(frag);
+  }
 
   const card = $('.profile-card');
-  if (card && !reduceMotion && finePointer) {
-    const stage = $('.hero-stage');
-    stage.addEventListener('pointermove', e => {
+  const stage = $('.hero-stage');
+  if (card && stage && !reduceMotion && finePointer) {
+    const moveCard = e => {
       const r = stage.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - .5;
       const y = (e.clientY - r.top) / r.height - .5;
-      card.style.transform = `rotateY(${x * 12}deg) rotateX(${y * -10}deg)`;
-    }, { passive: true });
-    stage.addEventListener('pointerleave', () => { card.style.transform = 'rotateY(0deg) rotateX(0deg)'; });
+      card.style.transform = `rotateY(${x * 14}deg) rotateX(${y * -11}deg)`;
+    };
+    stage.addEventListener('pointermove', moveCard, { passive: true });
+    stage.addEventListener('pointerleave', () => { card.style.transform = ''; });
   }
 
   if (!reduceMotion && finePointer) {
@@ -94,7 +113,7 @@
         const r = el.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width - .5;
         const y = (e.clientY - r.top) / r.height - .5;
-        el.style.transform = `perspective(900px) rotateX(${y * -4}deg) rotateY(${x * 5}deg) translateY(-4px)`;
+        el.style.transform = `perspective(950px) rotateX(${y * -4}deg) rotateY(${x * 5}deg) translateY(-4px)`;
       }, { passive: true });
       el.addEventListener('pointerleave', () => { el.style.transform = ''; });
     });
@@ -104,35 +123,40 @@
   if (glow && !reduceMotion && finePointer) {
     let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
     window.addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-    const move = () => {
-      x += (tx - x) * .12; y += (ty - y) * .12;
+    const moveGlow = () => {
+      x += (tx - x) * .1; y += (ty - y) * .1;
       glow.style.left = `${x}px`; glow.style.top = `${y}px`;
-      requestAnimationFrame(move);
+      requestAnimationFrame(moveGlow);
     };
-    requestAnimationFrame(move);
+    requestAnimationFrame(moveGlow);
   }
 
-  const projectTabs = $$('.project-tab');
-  const projects = $$('.project[data-category]');
-  const filterProjects = filter => {
-    projectTabs.forEach(tab => {
-      const active = tab.dataset.filter === filter;
+  const filterTabs = (tabs, items, key, value) => {
+    tabs.forEach(tab => {
+      const active = tab.dataset[key] === value;
       tab.classList.toggle('active', active);
       tab.setAttribute('aria-selected', String(active));
     });
-    projects.forEach(project => {
-      const show = filter === 'all' || project.dataset.category === filter;
-      project.classList.toggle('is-hidden', !show);
+    items.forEach(item => {
+      const show = value === 'all' || item.dataset[key] === value;
+      item.classList.toggle('is-hidden', !show);
     });
   };
-  projectTabs.forEach(tab => tab.addEventListener('click', () => filterProjects(tab.dataset.filter)));
+
+  const projectTabs = $$('.project-tab');
+  const projects = $$('.project[data-category]');
+  projectTabs.forEach(tab => tab.addEventListener('click', () => filterTabs(projectTabs, projects, 'filter', tab.dataset.filter)));
+
+  const companyTabs = $$('.company-tab');
+  const companies = $$('.company-card[data-company]');
+  companyTabs.forEach(tab => tab.addEventListener('click', () => filterTabs(companyTabs, companies, 'company', tab.dataset.company)));
 
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && mobileMenu) {
-      mobileMenu.classList.remove('open');
-      if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
-    }
+    if (e.key === 'Escape') closeMenu();
   });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1023) closeMenu();
+  }, { passive: true });
 
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
