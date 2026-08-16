@@ -77,7 +77,6 @@
   }
   navTabs.forEach(tab => tab.addEventListener('click', () => { setActiveTab(tab.dataset.section); closeMenu(); }));
 
-  // Local, dependency-free particle field. Nothing is loaded from Google or a CDN.
   const particleHost = $('#particles');
   if (particleHost && !reduceMotion) {
     const count = window.innerWidth < 650 ? 16 : window.innerWidth < 1000 ? 24 : 34;
@@ -97,13 +96,12 @@
   const card = $('.profile-card');
   const stage = $('.hero-stage');
   if (card && stage && !reduceMotion && finePointer) {
-    const moveCard = e => {
+    stage.addEventListener('pointermove', e => {
       const r = stage.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - .5;
       const y = (e.clientY - r.top) / r.height - .5;
       card.style.transform = `rotateY(${x * 14}deg) rotateX(${y * -11}deg)`;
-    };
-    stage.addEventListener('pointermove', moveCard, { passive: true });
+    }, { passive: true });
     stage.addEventListener('pointerleave', () => { card.style.transform = ''; });
   }
 
@@ -131,25 +129,25 @@
     requestAnimationFrame(moveGlow);
   }
 
-  const filterTabs = (tabs, items, key, value) => {
+  const filterTabs = (tabs, items, tabKey, itemKey, value) => {
     tabs.forEach(tab => {
-      const active = tab.dataset[key] === value;
+      const active = tab.dataset[tabKey] === value;
       tab.classList.toggle('active', active);
       tab.setAttribute('aria-selected', String(active));
     });
     items.forEach(item => {
-      const show = value === 'all' || item.dataset[key] === value;
+      const show = value === 'all' || item.dataset[itemKey] === value;
       item.classList.toggle('is-hidden', !show);
     });
   };
 
   const projectTabs = $$('.project-tab');
   const projects = $$('.project[data-category]');
-  projectTabs.forEach(tab => tab.addEventListener('click', () => filterTabs(projectTabs, projects, 'filter', tab.dataset.filter)));
+  projectTabs.forEach(tab => tab.addEventListener('click', () => filterTabs(projectTabs, projects, 'filter', 'category', tab.dataset.filter)));
 
   const companyTabs = $$('.company-tab');
   const companies = $$('.company-card[data-company]');
-  companyTabs.forEach(tab => tab.addEventListener('click', () => filterTabs(companyTabs, companies, 'company', tab.dataset.company)));
+  companyTabs.forEach(tab => tab.addEventListener('click', () => filterTabs(companyTabs, companies, 'company', 'company', tab.dataset.company)));
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeMenu();
