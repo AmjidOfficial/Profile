@@ -1,0 +1,58 @@
+/* Premium Neumorphic / 3D Luxury mode */
+html.neumorphic-mode{background:#dce9e8}
+body.neumorphic-mode{background:linear-gradient(145deg,#d7e5e3,#edf5f4);color:#173a3a}
+body.neumorphic-mode .sidebar{background:rgba(226,239,237,.92);border-color:rgba(255,255,255,.7);box-shadow:12px 12px 28px rgba(26,73,72,.16),-10px -10px 24px rgba(255,255,255,.8);backdrop-filter:blur(18px)}
+body.neumorphic-mode .side-logo span{background:linear-gradient(145deg,#087b78,#064e4d);box-shadow:5px 5px 10px rgba(20,76,75,.24),-4px -4px 9px rgba(255,255,255,.65)}
+body.neumorphic-mode .sidebar nav a{color:#66807f}
+body.neumorphic-mode .sidebar nav a:hover,body.neumorphic-mode .sidebar nav a.active{background:#dcebea;color:#087b78;box-shadow:inset 3px 3px 7px rgba(41,91,90,.12),inset -3px -3px 7px rgba(255,255,255,.7)}
+body.neumorphic-mode .panel,body.neumorphic-mode .section{background:linear-gradient(145deg,#e5f0ee,#d5e3e1);border:1px solid rgba(255,255,255,.68);box-shadow:18px 18px 45px rgba(39,83,82,.15),-14px -14px 38px rgba(255,255,255,.78)}
+body.neumorphic-mode .hero{background:radial-gradient(circle at 76% 45%,rgba(40,174,169,.18),transparent 30%),linear-gradient(145deg,#e8f2f0,#d8e6e4)}
+body.neumorphic-mode .hero:before{background-image:linear-gradient(rgba(8,123,120,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(8,123,120,.035) 1px,transparent 1px)}
+body.neumorphic-mode .pill{background:#dcebe9;color:#087b78;border-color:rgba(255,255,255,.65);box-shadow:inset 2px 2px 5px rgba(39,90,88,.08),inset -2px -2px 5px rgba(255,255,255,.7)}
+body.neumorphic-mode .hero h1 span,body.neumorphic-mode .center-title em,body.neumorphic-mode .about-grid em,body.neumorphic-mode .contact h2 em{background:linear-gradient(100deg,#087b78,#1eb9c4,#b98a38);background-clip:text;-webkit-background-clip:text}
+body.neumorphic-mode .lead,body.neumorphic-mode .about-grid p,body.neumorphic-mode .center-title p{color:#617a79}
+body.neumorphic-mode .btn{background:#dce9e7;border-color:rgba(255,255,255,.55);color:#1c4d4c;box-shadow:7px 7px 15px rgba(45,89,88,.14),-6px -6px 13px rgba(255,255,255,.72)}
+body.neumorphic-mode .btn:hover{box-shadow:inset 3px 3px 8px rgba(40,85,84,.12),inset -3px -3px 8px rgba(255,255,255,.8);transform:translateY(-2px)}
+body.neumorphic-mode .btn.primary{background:linear-gradient(145deg,#087b78,#075b59);color:#fff;border-color:transparent;box-shadow:8px 8px 18px rgba(7,81,79,.25),-5px -5px 12px rgba(255,255,255,.35)}
+body.neumorphic-mode .hero-art .halo{background:radial-gradient(ellipse,rgba(35,183,178,.27),transparent 68%);filter:blur(26px)}
+body.neumorphic-mode .card3d{background:linear-gradient(145deg,#e9f3f1,#cbdcd9);border:1px solid rgba(255,255,255,.8);box-shadow:22px 30px 48px rgba(34,83,81,.22),-12px -12px 28px rgba(255,255,255,.72);transform:rotate(3deg)}
+body.neumorphic-mode .card3d:before{background:linear-gradient(145deg,#087b78,#0e9e9a 45%,transparent 46%);opacity:.92}
+body.neumorphic-mode .card3d img{box-shadow:7px 9px 18px rgba(26,74,72,.2),-4px -4px 9px rgba(255,255,255,.75)}
+body.neumorphic-mode .card-bars i{background:linear-gradient(#c59a48,#087b78)}
+body.neumorphic-mode .float{background:#deebe9;border-color:rgba(255,255,255,.7);box-shadow:11px 14px 28px rgba(35,82,80,.16),-7px -7px 16px rgba(255,255,255,.72)}
+body.neumorphic-mode .float b{color:#087b78}
+body.neumorphic-mode .s1{background:#c59a48;box-shadow:0 0 0 7px rgba(197,154,72,.1)}
+body.neumorphic-mode .s2{background:#16aeb5;box-shadow:0 0 0 7px rgba(22,174,181,.1)}
+body.neumorphic-mode .ticker{background:#dce9e7;color:#708887;box-shadow:12px 12px 28px rgba(35,82,80,.14),-9px -9px 22px rgba(255,255,255,.72)}
+body.neumorphic-mode .ticker i{color:#b98a38}
+body.neumorphic-mode .section-title{color:#6d8684}body.neumorphic-mode .section-title span{background:rgba(60,104,102,.15)}
+body.neumorphic-mode .stats>div{background:#dce9e7;border-color:rgba(255,255,255,.65);box-shadow:8px 8px 18px rgba(38,84,82,.13),-7px -7px 16px rgba(255,255,255,.7)}
+body.neumorphic-mode .stats b{color:#0a6967}body.neumorphic-mode .stats span{color:#718785}
+body.neumorphic-mode .services,body.neumorphic-mode .career{background:linear-gradient(145deg,#e3eeec,#d4e2e0)}
+body.neumorphic-mode .service-grid{border-color:rgba(255,255,255,.5);box-shadow:inset 3px 3px 8px rgba(46,91,89,.08),inset -3px -3px 8px rgba(255,255,255,.65)}
+body.neumorphic-mode .service{border-color:rgba(65,105,103,.1)}body.neumorphic-mode .service:hover,body.neumorphic-mode .service.active{background:#dce9e7;box-shadow:inset 5px 5px 12px rgba(43,87,85,.1),inset -5px -5px 12px rgba(255,255,255,.7)}
+body.neumorphic-mode .service span{color:#087b78}body.neumorphic-mode .service p{color:#718785}
+body.neumorphic-mode .job-card{background:#dce9e7;border-color:rgba(255,255,255,.65);box-shadow:9px 9px 20px rgba(39,84,82,.12),-7px -7px 16px rgba(255,255,255,.7)}
+body.neumorphic-mode .job-dot{background:#dce9e7;border-color:#087b78}body.neumorphic-mode .job:not(:last-child) .job-dot:after{background:rgba(8,123,120,.2)}
+body.neumorphic-mode .job-card>small{color:#087b78}.neumorphic-mode .job-card>b,.neumorphic-mode .job-card p{color:#6f8584}
+body.neumorphic-mode .projects{background:linear-gradient(145deg,#073f40,#052e30);color:#effafa;box-shadow:18px 18px 45px rgba(21,67,66,.24),-12px -12px 30px rgba(255,255,255,.45)}
+body.neumorphic-mode .projects .section-title{color:#9ab5b3}.neumorphic-mode .projects .section-title span{background:rgba(197,154,72,.35)}
+body.neumorphic-mode .project{background:linear-gradient(145deg,#0c4c4c,#063739);border-color:rgba(116,194,190,.16);box-shadow:9px 12px 25px rgba(0,0,0,.2),-6px -6px 16px rgba(91,173,169,.08)}
+body.neumorphic-mode .project:hover{border-color:rgba(197,154,72,.55)}
+body.neumorphic-mode .project.blue{background:linear-gradient(145deg,#e5f0ee,#cfdfdc);color:#173a3a;box-shadow:9px 12px 25px rgba(0,0,0,.12),-6px -6px 16px rgba(255,255,255,.22)}
+body.neumorphic-mode .project.blue p{color:#607775}.neumorphic-mode .project em{color:#087b78}
+body.neumorphic-mode .award-row article{background:#dce9e7;border-color:rgba(255,255,255,.65);box-shadow:9px 10px 22px rgba(38,84,82,.12),-7px -7px 16px rgba(255,255,255,.72)}
+body.neumorphic-mode .award-row article:hover{box-shadow:inset 3px 3px 8px rgba(40,83,82,.08),inset -3px -3px 8px rgba(255,255,255,.75);transform:translateY(-3px)}
+body.neumorphic-mode .award-row strong{color:#a27a32}.neumorphic-mode .award-row p{color:#718785}
+body.neumorphic-mode .contact-box{background:linear-gradient(145deg,#e5f0ee,#d6e5e2);border-color:rgba(255,255,255,.65);box-shadow:10px 12px 26px rgba(39,83,82,.12),-8px -8px 18px rgba(255,255,255,.72)}
+body.neumorphic-mode .contact-box>div>p,body.neumorphic-mode .contact-list a{color:#6c8381}
+body.neumorphic-mode .contact input,body.neumorphic-mode .contact textarea{background:#dce9e7;border-color:rgba(255,255,255,.65);box-shadow:inset 4px 4px 9px rgba(42,85,83,.1),inset -4px -4px 9px rgba(255,255,255,.7);color:#244847}
+body.neumorphic-mode .contact input:focus,body.neumorphic-mode .contact textarea:focus{border-color:#0b9996;background:#dce9e7}
+body.neumorphic-mode .contact form button{background:linear-gradient(145deg,#087b78,#075b59);box-shadow:8px 8px 16px rgba(7,81,79,.2)}
+body.neumorphic-mode footer{color:#66807f}
+.theme-toggle{position:fixed;right:26px;top:24px;z-index:120;display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(255,255,255,.7);border-radius:999px;background:rgba(255,255,255,.9);color:#223033;box-shadow:0 10px 25px rgba(0,0,0,.12);backdrop-filter:blur(12px);cursor:pointer;font-size:9px;font-weight:900;letter-spacing:.05em;transition:.25s}
+.theme-toggle:hover{transform:translateY(-2px)}.theme-toggle .toggle-dot{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#17313a;color:#fff;font-size:9px}
+body.neumorphic-mode .theme-toggle{background:#dce9e7;color:#0a6967;border-color:rgba(255,255,255,.75);box-shadow:7px 8px 17px rgba(37,83,81,.15),-5px -5px 12px rgba(255,255,255,.72)}
+body.neumorphic-mode .theme-toggle .toggle-dot{background:#087b78}
+@media(max-width:760px){.theme-toggle{right:72px;top:20px;padding:7px 9px;font-size:8px}.theme-toggle .toggle-dot{width:16px;height:16px}.neumorphic-mode .hero{min-height:650px}.neumorphic-mode .card3d{width:235px;height:330px}.neumorphic-mode .float{padding:10px 12px}.neumorphic-mode .float b{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.theme-toggle,.neumorphic-mode .card3d{transition:none!important}}
