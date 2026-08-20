@@ -12,13 +12,13 @@ body.neumorphic-mode .lead,body.neumorphic-mode .about-grid p,body.neumorphic-mo
 body.neumorphic-mode .btn{background:#dce9e7;border-color:rgba(255,255,255,.55);color:#1c4d4c;box-shadow:7px 7px 15px rgba(45,89,88,.14),-6px -6px 13px rgba(255,255,255,.72)}
 body.neumorphic-mode .btn.primary{background:linear-gradient(145deg,#087b78,#075b59);color:#fff;border-color:transparent}
 body.neumorphic-mode .hero-art .halo{background:radial-gradient(ellipse,rgba(35,183,178,.27),transparent 68%);filter:blur(26px)}
-/* Rebuilt profile frame: the photo stays untouched, only the frame/background is redesigned. */
 body.neumorphic-mode .hero-art{isolation:isolate;perspective:1100px}
 body.neumorphic-mode .hero-art:before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.82),rgba(38,159,153,.12) 45%,rgba(9,93,91,.08) 72%,transparent 73%);box-shadow:inset 18px 18px 34px rgba(255,255,255,.55),inset -18px -18px 34px rgba(26,81,80,.12);z-index:0}
 body.neumorphic-mode .card3d{width:300px;height:405px;padding:18px;background:linear-gradient(145deg,#f0f7f5,#c8dcda);border:1px solid rgba(255,255,255,.9);border-radius:30px;box-shadow:24px 30px 55px rgba(28,78,76,.24),-16px -16px 34px rgba(255,255,255,.8);transform:rotate(2deg);overflow:hidden;z-index:3}
 body.neumorphic-mode .card3d:after{content:"";position:absolute;inset:8px;border-radius:23px;border:1px solid rgba(255,255,255,.65);pointer-events:none}
 body.neumorphic-mode .card3d:before{background:linear-gradient(145deg,#086f6c,#0eaaa5 47%,transparent 48%);height:155px;opacity:.95}
-body.neumorphic-mode .card3d img{display:block;width:148px;height:148px;margin:58px auto 17px;object-fit:cover;object-position:center top;border-radius:50%;border:8px solid rgba(240,249,247,.92);box-shadow:9px 12px 22px rgba(26,74,72,.2),-5px -5px 12px rgba(255,255,255,.8);position:relative;z-index:4}
+/* Theme-matched photo surround. The original portrait pixels are not altered. */
+body.neumorphic-mode .card3d img{display:block;width:148px;height:148px;margin:58px auto 17px;object-fit:cover;object-position:center top;border-radius:50%;border:8px solid #dce9e7;box-shadow:0 0 0 4px rgba(8,123,120,.12),9px 12px 22px rgba(26,74,72,.2),-5px -5px 12px rgba(255,255,255,.8);position:relative;z-index:4;background:#dce9e7}
 body.neumorphic-mode .card-info b{font-size:16px;color:#173f3e}.neumorphic-mode .card-info span{font-size:8px;color:#607b79}
 body.neumorphic-mode .card-bars{margin-top:22px}.neumorphic-mode .card-bars i{background:linear-gradient(#c59a48,#087b78)}
 body.neumorphic-mode .float{background:#deebe9;border-color:rgba(255,255,255,.7);box-shadow:11px 14px 28px rgba(35,82,80,.16),-7px -7px 16px rgba(255,255,255,.72)}body.neumorphic-mode .float b{color:#087b78}
