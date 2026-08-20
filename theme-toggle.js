@@ -9,10 +9,12 @@ const apply=mode=>{
 };
 const init=()=>{
  if(!document.getElementById('theme-toggle')){
-  const b=document.createElement('button');b.id='theme-toggle';b.className='theme-toggle';b.type='button';b.setAttribute('aria-label','Switch portfolio visual mode');b.setAttribute('aria-pressed','false');document.body.appendChild(b);
+  const b=document.createElement('button');b.id='theme-toggle';b.className='theme-toggle';b.type='button';b.setAttribute('aria-label','Switch portfolio visual mode');b.setAttribute('aria-pressed','true');document.body.appendChild(b);
   b.addEventListener('click',()=>{const next=document.body.classList.contains('neumorphic-mode')?'classic':'neumorphic';localStorage.setItem(KEY,next);apply(next)});
  }
- apply(localStorage.getItem(KEY)==='neumorphic'?'neumorphic':'classic');
+ // Neumorphic is the first-visit/default mode. A deliberate user choice is remembered.
+ const saved=localStorage.getItem(KEY);
+ apply(saved==='classic'?'classic':'neumorphic');
 };
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
