@@ -1,0 +1,25 @@
+/* Source-inspired motion layer. Scoped to Profile 02/03 only. */
+.profile-variant-2 .pv2-page,.profile-variant-3 .pv3-page{position:relative;overflow-x:clip}
+.profile-variant-2 .pv2-page::before,.profile-variant-3 .pv3-page::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:110;background:radial-gradient(circle at var(--mx,50%) var(--my,30%),rgba(120,80,255,.08),transparent 24%);mix-blend-mode:screen;opacity:.7}
+.pv-motion-reveal{opacity:0;transform:translateY(34px) scale(.985);filter:blur(7px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1),filter .8s ease}
+.pv-motion-reveal.is-visible{opacity:1;transform:none;filter:none}
+.pv-motion-delay-1{transition-delay:.08s}.pv-motion-delay-2{transition-delay:.16s}.pv-motion-delay-3{transition-delay:.24s}.pv-motion-delay-4{transition-delay:.32s}
+.pv2-page .pv2-hero,.pv3-page .pv3-hero{isolation:isolate}
+.pv2-page .pv2-grid{animation:pv-grid-drift 18s linear infinite}.pv2-page .pv2-glow{animation:pv-glow 7s ease-in-out infinite alternate}
+.pv2-page .pv2-idcard{animation:pv-card-float 5.5s ease-in-out infinite;transform-style:preserve-3d;will-change:transform}.pv2-page .pv2-pin{animation:pv-pin 5.5s ease-in-out infinite}
+.pv2-page .pv2-b1{animation:pv-bubble-a 6s ease-in-out infinite}.pv2-page .pv2-b2{animation:pv-bubble-b 7s ease-in-out infinite}
+.pv2-page .pv2-projects article{transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s ease}.pv2-page .pv2-projects article:hover{transform:translateY(-8px) rotateX(1deg);box-shadow:0 28px 70px rgba(10,25,55,.22)}
+.pv2-page .pv2-actions a,.pv2-page .pv2-contact-links a{transition:transform .3s ease,letter-spacing .3s ease}.pv2-page .pv2-actions a:hover,.pv2-page .pv2-contact-links a:hover{transform:translateY(-3px);letter-spacing:.03em}
+.pv3-page{background-size:140% 140%;animation:pv-cinematic-bg 14s ease-in-out infinite alternate}.pv3-page .pv3-noise{animation:pv-noise 8s steps(8) infinite}.pv3-page .pv3-orbit{animation:pv-orbit 16s linear infinite}
+.pv3-page .pv3-card{animation:pv-cinematic-card 7s ease-in-out infinite;transform-style:preserve-3d;will-change:transform}.pv3-page .pv3-note.n1{animation:pv-note-a 5s ease-in-out infinite}.pv3-page .pv3-note.n2{animation:pv-note-b 6s ease-in-out infinite}
+.pv3-page .pv3-cards article{transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .4s ease,box-shadow .5s ease}.pv3-page .pv3-cards article:hover{transform:translateY(-10px) scale(1.015);box-shadow:0 30px 80px rgba(0,0,0,.32);border-color:rgba(255,255,255,.35)}
+.pv3-page .pv3-cards article::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.1) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s ease}.pv3-page .pv3-cards article:hover::after{transform:translateX(120%)}
+.pv-motion-counter{display:inline-block;min-width:1.8ch}.pv-motion-progress{position:fixed;left:0;top:0;height:2px;width:0;z-index:200;background:linear-gradient(90deg,#7a35ed,#27a0ff,#fff);box-shadow:0 0 18px rgba(100,130,255,.7);pointer-events:none}
+@keyframes pv-grid-drift{to{background-position:180px 90px}}@keyframes pv-glow{from{transform:scale(.92) translate3d(-12px,4px,0);opacity:.65}to{transform:scale(1.12) translate3d(16px,-8px,0);opacity:1}}
+@keyframes pv-card-float{0%,100%{transform:translate3d(0,0,0) rotate(3deg)}50%{transform:translate3d(0,-16px,18px) rotate(1deg)}}@keyframes pv-pin{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-12px) rotate(-2deg)}}
+@keyframes pv-bubble-a{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-10px,-13px,0)}}@keyframes pv-bubble-b{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(11px,10px,0)}}
+@keyframes pv-cinematic-bg{from{background-position:20% 30%}to{background-position:85% 70%}}@keyframes pv-noise{0%,100%{opacity:.035;transform:translate(0,0)}25%{transform:translate(1%,-1%)}50%{transform:translate(-1%,1%)}75%{transform:translate(1%,1%)}}
+@keyframes pv-orbit{to{transform:rotate(360deg)}}@keyframes pv-cinematic-card{0%,100%{transform:perspective(1000px) rotateY(-3deg) rotateX(1deg) translateY(0)}50%{transform:perspective(1000px) rotateY(4deg) rotateX(-1deg) translateY(-12px)}}
+@keyframes pv-note-a{0%,100%{transform:translate(0,0)}50%{transform:translate(-9px,-10px)}}@keyframes pv-note-b{0%,100%{transform:translate(0,0)}50%{transform:translate(9px,9px)}}
+@media (max-width:760px){.profile-variant-2 .pv2-page::before,.profile-variant-3 .pv3-page::before{opacity:.35}.pv-motion-reveal{transform:translateY(22px) scale(.99);filter:blur(4px)}}
+@media (prefers-reduced-motion:reduce){.profile-variant-2 .pv2-page::before,.profile-variant-3 .pv3-page::before,.pv2-page .pv2-grid,.pv2-page .pv2-glow,.pv2-page .pv2-idcard,.pv2-page .pv2-pin,.pv2-page .pv2-b1,.pv2-page .pv2-b2,.pv3-page,.pv3-page .pv3-noise,.pv3-page .pv3-orbit,.pv3-page .pv3-card,.pv3-page .pv3-note.n1,.pv3-page .pv3-note.n2{animation:none!important}.pv-motion-reveal{opacity:1;transform:none;filter:none;transition:none}}
