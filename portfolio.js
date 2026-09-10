@@ -17,7 +17,7 @@ const D={
 
 const jobs=[
  ['2022','Present','Regional Sales Manager – North','Aziz Group of Industries','Lead regional FMCG sales operations across North Pakistan, managing 45+ distributors and a field force of 1 Sales Coordinator, 1 ASM, 6 TSMs and 22 Order Bookers.'],
- ['2021','2022','FMCG Distributor Operations – Peshawar','Independent / FMCG Distribution','Managed FMCG distribution across snacks, biscuits and beverages, with secondary sales tracking, retail execution, demand fulfillment and market coverage.'],
+ ['2021','2022','FMCG Distributor Operations – Peshawar','FMCG Distribution','Managed FMCG distribution across snacks, biscuits and beverages, with secondary sales tracking, retail execution, demand fulfillment and market coverage.'],
  ['2019','2021','Zonal Sales Manager – KPK','Volka Food International (Cookania)','Managed zonal sales operations, forecasting, demand planning, RTM execution, distribution expansion and field-force productivity.'],
  ['2017','2019','Area Sales Manager – Peshawar','Ismail Industries Limited','Managed distributor and field sales operations in General Trade, secondary sales tracking, merchandising compliance and SKU availability.'],
  ['2016','2017','Area Sales Manager (Acting – KPK)','Ismail Industries Limited','Supervised outstation markets across KPK, monitored distributor KPIs and supported field training and sales performance.'],
@@ -26,21 +26,25 @@ const jobs=[
 ];
 
 const projects=[
- {id:'smart',cat:'Sales Transformation',title:'SMART Sales App & Web Portal',desc:'Head office digital transformation initiative for real-time sales tracking, GPS monitoring, attendance and KPI dashboards.',tags:['Sales Automation','GPS','KPI Dashboards'],year:'2023',url:'#contact',type:'INTERNAL INITIATIVE'},
- {id:'pulse',cat:'AI Analytics',title:'SalesPulse AI Analytics System',desc:'AI analytics system for Brand, SKU, Order Booker and route-level performance tracking and reporting. The public repository documents an offline-first FMCG field sales command center.',tags:['Gemini AI Studio','React','Node.js'],year:'2026',url:D.salesPulse,type:'GITHUB PROJECT'},
- {id:'bazar',cat:'Digital Commerce',title:'Bazar360.online',desc:'Automotive marketplace and showroom ecosystem, including the Auto Choice automotive division.',tags:['React','Node.js','Firebase','Cloudinary'],year:'Active',url:D.bazar,type:'LIVE PLATFORM'},
+ {id:'smart',cat:'Sales Transformation',title:'SMART Sales App & Web Portal',desc:'Head office digital transformation initiative for real-time sales tracking, GPS monitoring, attendance and KPI dashboards.',tags:['Sales Automation','GPS Monitoring','KPI Dashboards'],year:'2023',url:'#contact',type:'HEAD OFFICE INITIATIVE'},
+ {id:'pulse',cat:'AI Analytics',title:'SalesPulse AI Analytics System',desc:'AI analytics system for Brand, SKU, Order Booker and route-level performance tracking and reporting, created using Gemini AI Studio.',tags:['Gemini AI Studio','Brand & SKU Analytics','OB & Route Reporting'],year:'2026',url:D.salesPulse,type:'GITHUB PROJECT'},
+ {id:'bazar',cat:'Digital Commerce',title:'Bazar360.online',desc:'Automotive marketplace platform featuring the Auto Choice automotive sector.',tags:['Automotive Marketplace','Auto Choice','Online Platform'],year:'Active',url:D.bazar,type:'LIVE PLATFORM'},
  {id:'profile',cat:'Digital Profile',title:'Muhammad Amjid Portfolio',desc:'This profile system, combining a responsive portfolio, multiple visual profiles and theme switching.',tags:['HTML','CSS','JavaScript'],year:'2026',url:D.profileRepo,type:'GITHUB REPOSITORY'}
 ];
 
 const skills=[
- ['FMCG Sales Systems','Sales Operations',96],
- ['Sales Forecasting','Demand Planning',94],
- ['RTM & Distribution','Commercial Execution',95],
- ['Advanced Reporting','Excel / KPI Reporting',92],
- ['AI-Based Analytics','Gemini AI Studio',88],
- ['Field Force Tracking','Sales Automation',90],
- ['CRM Platforms','Sales Systems',84],
- ['KPI Dashboards','Performance Reporting',90]
+ ['FMCG Sales Systems','Technical Skills','Listed'],
+ ['Sales Forecasting Tools','Technical Skills','Listed'],
+ ['Demand Planning Systems','Technical Skills','Listed'],
+ ['CRM Platforms','Technical Skills','Listed'],
+ ['Excel Advanced Reporting','Technical Skills','Listed'],
+ ['AI-Based Analytics','Gemini AI Studio','Listed'],
+ ['Field Force Tracking Systems','Technical Skills','Listed'],
+ ['KPI Dashboards','Technical Skills','Listed'],
+ ['Sales Automation Tools','Technical Skills','Listed'],
+ ['Numeric & Weighted Distribution','Core Competency','Listed'],
+ ['Retail Execution Excellence','Core Competency','Listed'],
+ ['Route-to-Market Optimization','Core Competency','Listed']
 ];
 
 const education=[
@@ -101,7 +105,7 @@ function render(){
 
    <section id="projects" class="section projects"><div class="section-title"><small>04 / SELECTED WORK</small><span></span><small>SALES × TECHNOLOGY</small></div><div class="center-title"><h2>Built around <em>real problems.</em></h2><p>Verified projects and initiatives only. Use the filters to explore.</p></div><div class="project-filters" role="tablist" aria-label="Project filters"><button class="active" data-filter="all">All</button><button data-filter="Sales Transformation">Sales</button><button data-filter="AI Analytics">AI Analytics</button><button data-filter="Digital Commerce">Commerce</button><button data-filter="Digital Profile">Profile</button></div><div class="project-grid" id="project-grid">${projects.map((p,i)=>projectCard(p,i)).join('')}</div></section>
 
-   <section id="skills" class="section"><div class="section-title"><small>05 / SKILLS</small><span></span><small>VERIFIED TECHNICAL & COMMERCIAL SKILLS</small></div><div class="center-title"><h2>Skills that support <em>execution.</em></h2><p>These are presented from the technical skills and core competencies listed in the current resume. Percentages are visual proficiency indicators, not measured test scores.</p></div><div class="skill-list">${skills.map(s=>`<div class="skill-row reveal"><div class="skill-head"><strong>${esc(s[0])}</strong><span>${esc(s[1])}</span></div><div class="skill-track"><i style="width:${s[2]}%"></i></div></div>`).join('')}</div></section>
+   <section id="skills" class="section"><div class="section-title"><small>05 / SKILLS</small><span></span><small>VERIFIED TECHNICAL & COMMERCIAL SKILLS</small></div><div class="center-title"><h2>Skills listed in the <em>resume.</em></h2><p>Progress bars are visual indicators that the skill is listed in the current resume. They are not claimed proficiency scores.</p></div><div class="skill-list">${skills.map(s=>`<div class="skill-row reveal"><div class="skill-head"><strong>${esc(s[0])}</strong><span>${esc(s[1])} · ${esc(s[2])}</span></div><div class="skill-track"><i style="width:100%"></i></div></div>`).join('')}</div></section>
 
    <section id="recognition" class="section recognition"><div class="section-title"><small>06 / RECOGNITION</small><span></span><small>ACHIEVEMENTS & AWARDS</small></div><div class="center-title"><h2>Recognition for <em>impact.</em></h2></div><div class="award-row">${awards.map(a=>`<article class="reveal"><strong>${esc(a[0])}</strong><h3>${esc(a[1])}</h3><p>${esc(a[2])}</p></article>`).join('')}</div></section>
 
