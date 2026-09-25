@@ -10,7 +10,6 @@ const D={
  linkedin:'https://www.linkedin.com/in/amjid1988/',
  github:'https://github.com/AmjidOfficial/',
  profileRepo:'https://github.com/AmjidOfficial/Profile',
- salesPulse:'https://github.com/AmjidOfficial/SALESPULSE',
  bazarRepo:'https://github.com/AmjidOfficial/BAZAR360',
  bazar:'https://bazar360.online/'
 };
@@ -27,7 +26,7 @@ const jobs=[
 
 const projects=[
  {id:'smart',cat:'Sales Transformation',title:'SMART Sales App & Web Portal',desc:'Head office digital transformation initiative for real-time sales tracking, GPS monitoring, attendance and KPI dashboards.',tags:['Sales Automation','GPS Monitoring','KPI Dashboards'],year:'2023',url:'#contact',type:'HEAD OFFICE INITIATIVE'},
- {id:'pulse',cat:'AI Analytics',title:'SalesPulse AI Analytics System',desc:'AI analytics system for Brand, SKU, Order Booker and route-level performance tracking and reporting, created using Gemini AI Studio.',tags:['Gemini AI Studio','Brand & SKU Analytics','OB & Route Reporting'],year:'2026',url:D.salesPulse,type:'GITHUB PROJECT'},
+ {id:'pulse',cat:'AI Analytics',title:'SalesPulse AI Analytics System',desc:'AI analytics system for Brand, SKU, Order Booker and route-level performance tracking and reporting, created using Gemini AI Studio.',tags:['Gemini AI Studio','Brand & SKU Analytics','OB & Route Reporting'],year:'2026',url:'#contact',type:'AI ANALYTICS CASE STUDY'},
  {id:'bazar',cat:'Digital Commerce',title:'Bazar360.online',desc:'Automotive marketplace platform featuring the Auto Choice automotive sector.',tags:['Automotive Marketplace','Auto Choice','Online Platform'],year:'Active',url:D.bazar,type:'LIVE PLATFORM'},
  {id:'profile',cat:'Digital Profile',title:'Muhammad Amjid Portfolio',desc:'This profile system, combining a responsive portfolio, multiple visual profiles and theme switching.',tags:['HTML','CSS','JavaScript'],year:'2026',url:D.profileRepo,type:'GITHUB REPOSITORY'}
 ];
@@ -120,7 +119,7 @@ function render(){
  bind();
 }
 
-function projectCard(p,i){return `<article class="project ${i===0?'big':''} reveal" data-category="${esc(p.cat)}"><small>${String(i+1).padStart(2,'0')} · ${esc(p.type)}</small><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="project-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><b class="project-year">${esc(p.year)}</b>${A(p.url,p.url.startsWith('#')?'DETAILS ↗':'OPEN ↗')}</article>`}
+function projectCard(p,i){return `<article class="project ${i===0?'big':''} reveal" data-category="${esc(p.cat)}"><small>${String(i+1).padStart(2,'0')} · ${esc(p.type)}</small><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p><div class="project-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div><b class="project-year">${esc(p.year)}</b>${A(p.url,p.url.startsWith('#')?'VIEW CASE STUDY ↗':'OPEN ↗')}</article>`}
 
 function bind(){
  const menu=document.querySelector('.mobile-menu'),side=document.querySelector('.sidebar');
