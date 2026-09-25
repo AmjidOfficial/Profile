@@ -1,7 +1,7 @@
 (()=>{
 'use strict';
 
-const A=(u,t,c='')=>`<a class="${c}" href="${u}" target="_blank" rel="noopener noreferrer">${t}</a>`;
+const A=(u,t,c='')=>{const external=/^https?:\/\//i.test(String(u));const attrs=external?' target="_blank" rel="noopener noreferrer"':'';return `<a class="${c}" href="${u}"${attrs}>${t}</a>`};
 const D={
  name:'Muhammad Amjid',
  photo:'assets/images/Muhammad-Amjid.jpeg',
