@@ -5,7 +5,7 @@ photo:"assets/images/Muhammad-Amjid.jpeg",resume:"assets/resume/Muhammad-Amjid-R
 linkedin:"https://www.linkedin.com/in/amjid1988/",github:"https://github.com/AmjidOfficial/",
 companies:{
 "Aziz Group of Industries":"https://kitepk.com/","Volka Food International (Cookania)":"https://volkafood.com/",
-"Ismail Industries Limited":"https://ismailindustries.com.pk/","Muller & Phipps / Shakir & Associates":"https://www.pepsico.com/brands/lays"
+"Ismail Industries Limited":"https://ismailindustries.com.pk/","Muller & Phipps / Shakir & Associates":"https://www.pepsico.com/en/brands/lays"
 },
 jobs:[
 ["2022 → Present","Regional Sales Manager – North","Aziz Group of Industries","45+ distributors and a field force including 1 Sales Coordinator, 1 ASM, 6 TSMs and 22 Order Bookers. Sales forecasting, demand planning, primary and secondary sales, RTM, distribution and retail execution."],
