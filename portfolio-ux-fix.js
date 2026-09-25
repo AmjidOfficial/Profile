@@ -34,6 +34,8 @@ function addCSS(){if(document.getElementById('profile-controls-css'))return;cons
 @media(max-width:760px){#amjid-profile-toolbar{left:10px;right:auto;top:10px;gap:6px}.amjid-tool>button{min-width:92px;padding:9px 10px;font-size:9px}.amjid-tool-menu{left:0;right:auto;width:min(245px,calc(100vw - 20px));max-height:60vh}.amjid-tool:last-child .amjid-tool-menu{left:auto;right:0}}
 @media(max-width:420px){#amjid-profile-toolbar{left:8px;top:8px;gap:5px}.amjid-tool>button{min-width:86px;padding:8px 9px;font-size:8px}.amjid-tool>button span{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.amjid-tool>button,.amjid-tool-menu{transition:none;animation:none}}
+
+.profile-career-modern .ev-modern-head,.profile-career-modern .cv-modern-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin:35px 0 60px}.profile-career-modern h2,.profile-education-modern h2{font-size:clamp(48px,7vw,105px);line-height:.9;margin:0}.profile-career-modern h2 em,.profile-education-modern h2 em{font-style:normal}.profile-career-modern p,.profile-education-modern p{max-width:330px}.profile-career-modern .ev-career-list,.profile-career-modern .cv-career-list{display:grid}.profile-career-modern article{display:grid;grid-template-columns:60px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid rgba(127,127,127,.2)}.profile-career-modern article>span{font:500 10px 'DM Mono',monospace}.profile-career-modern article small,.profile-career-modern article b{font-size:9px;letter-spacing:.06em}.profile-career-modern article h3{margin:7px 0 4px;font-size:22px}.profile-career-modern article p{margin:7px 0 0;font-size:11px;line-height:1.6}.profile-education-modern .ev-education-grid,.profile-education-modern .cv-education-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:45px}.profile-education-modern article{min-height:160px;padding:20px;border:1px solid rgba(127,127,127,.2);display:flex;flex-direction:column;justify-content:space-between}.profile-education-modern article span,.profile-education-modern article small{font-size:9px;opacity:.65}.profile-education-modern article b{font-size:15px}.profile-education-modern article strong{font-size:10px;opacity:.75}@media(max-width:900px){.profile-education-modern .ev-education-grid,.profile-education-modern .cv-education-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.profile-career-modern .ev-modern-head,.profile-career-modern .cv-modern-head{display:block}.profile-education-modern .ev-education-grid,.profile-education-modern .cv-education-grid{grid-template-columns:1fr}.profile-career-modern article{grid-template-columns:35px 1fr}.profile-career-modern article h3{font-size:17px}}
 `;document.head.appendChild(s)}
 function linkFor(kind,id){const u=new URL(location.href);u.search='';u.hash='';const p=localStorage.getItem('amjid-profile-mode')||'gravity';const t=localStorage.getItem('amjid-theme')||'neumorphic';u.searchParams.set('profile',kind==='profile'?id:p);u.searchParams.set('theme',kind==='theme'?id:t);return u.href}
 function markCurrent(root){const p=localStorage.getItem('amjid-profile-mode')||'legacy';const t=localStorage.getItem('amjid-theme')||'neumorphic';root.querySelectorAll('[data-profile]').forEach(a=>a.setAttribute('aria-current',String(a.dataset.profile===p)));root.querySelectorAll('[data-theme]').forEach(a=>a.setAttribute('aria-current',String(a.dataset.theme===t)))}
@@ -42,6 +44,37 @@ function bindToolLinks(bar){bar.querySelectorAll('a[data-profile],a[data-theme]'
 function makeToolbar(){let bar=document.getElementById('amjid-profile-toolbar');if(!bar){addCSS();bar=document.createElement('div');bar.id='amjid-profile-toolbar';bar.setAttribute('role','group');bar.setAttribute('aria-label','Profile and theme controls');bar.append(buildTool('profile',profiles,'CHANGE PROFILE'),buildTool('theme',themes,'CHANGE THEME'));document.body.appendChild(bar);bar.addEventListener('click',e=>e.stopPropagation())}else{const links=bar.querySelectorAll('a');links.forEach(a=>{const kind=a.dataset.profile?'profile':'theme';const id=a.dataset.profile||a.dataset.theme;a.href=linkFor(kind,id)})}markCurrent(bar);bindToolLinks(bar)}
 function makeSidebarControls(){const side=document.querySelector('.sidebar');if(!side||side.querySelector('.amjid-sidebar-controls'))return;const box=document.createElement('div');box.className='amjid-sidebar-controls';box.innerHTML=`<div class="amjid-sidebar-title">PROFILE & THEME</div><a href="#" data-profile-menu>Change Profile</a><a href="#" data-theme-menu>Change Theme</a>`;const bottom=side.querySelector('.side-bottom');side.insertBefore(box,bottom||null);box.querySelector('[data-profile-menu]').addEventListener('click',e=>{e.preventDefault();document.querySelector('#amjid-profile-toolbar [data-profile="'+(localStorage.getItem('amjid-profile-mode')||'legacy')+'"]')?.focus();document.querySelector('#amjid-profile-toolbar .amjid-tool:first-child button')?.click()});box.querySelector('[data-theme-menu]').addEventListener('click',e=>{e.preventDefault();document.querySelector('#amjid-profile-toolbar .amjid-tool:last-child button')?.click()})}
 function ensureControls(){makeToolbar();makeSidebarControls();const old=document.getElementById('profile-switcher-fallback');if(old)old.remove();const oldMenu=document.getElementById('profile-switcher-fallback-menu');if(oldMenu)oldMenu.remove()}
-function run(){cleanLegacyDuplicate();modernRecognition();ensureControls()}
+function modernCareerEducation(){
+  const root=document.querySelector('.editorial-site,.cinematic-site');
+  if(!root||root.querySelector('.profile-career-modern'))return;
+  const prefix=root.classList.contains('editorial-site')?'ev':'cv';
+  const contact=root.querySelector('#ev-contact,#cv-contact');
+  if(!contact)return;
+  const jobs=[
+    ['2022 → PRESENT','Regional Sales Manager · North','Aziz Group of Industries','45+ distributors; 1 Sales Coordinator, 1 ASM, 6 TSMs and 22 Order Bookers. Sales forecasting, demand planning, RTM, retail execution and sales analytics.'],
+    ['Aug 2021 → Mar 2022','FMCG Distributor Operations · Peshawar','FMCG Distributor Operations','Snacks, biscuits and beverages distribution, secondary sales tracking, retail execution and demand fulfillment.'],
+    ['Jun 2019 → Jul 2021','Zonal Sales Manager · KPK','Volka Food International (Cookania)','Sales forecasting, demand planning, RTM execution, distribution expansion and field-force productivity.'],
+    ['Feb 2017 → Jun 2019','Area Sales Manager · Peshawar','Ismail Industries Limited','General Trade distributor and field sales operations, secondary sales, merchandising and SKU availability.'],
+    ['Jul 2016 → Feb 2017','Area Sales Manager (Acting) · KPK','Ismail Industries Limited','Outstation markets, distributor KPIs, RTM compliance and field training.'],
+    ['Feb 2014 → Jun 2016','Territory Sales Manager · Peshawar','Ismail Industries Limited','Territory FMCG sales, forecasting, demand execution, retail coverage and distributor engagement.'],
+    ['Nov 2009 → Feb 2014','Sales Representative · FMCG (PepsiCo Lays)','Muller & Phipps / Shakir & Associates','Primary and secondary General Trade sales, retailer relationships, trade promotions and field execution.']
+  ];
+  const edu=[
+    ['MBA (Executive)','Gomal University','2018–2020'],
+    ['MA Islamic Studies','Bacha Khan University','2018'],
+    ['BA','University of Peshawar','2015–2016'],
+    ['DAE Electrical','BTE KPK','2004–2007'],
+    ['SSC','BISE Peshawar','2004']
+  ];
+  const career=document.createElement('section');
+  career.className=prefix+'-section profile-career-modern';
+  career.innerHTML='<div class="'+prefix+'-index">06 / CAREER</div><div class="'+prefix+'-modern-head"><h2>2009 →<br><em>PRESENT.</em></h2><p>Full professional experience from the source CV.</p></div><div class="'+prefix+'-career-list">'+jobs.map((j,i)=>'<article><span>0'+(i+1)+'</span><div><small>'+j[0]+'</small><h3>'+j[1]+'</h3><b>'+j[2]+'</b><p>'+j[3]+'</p></div></article>').join('')+'</div>';
+  const education=document.createElement('section');
+  education.className=prefix+'-section profile-education-modern';
+  education.innerHTML='<div class="'+prefix+'-index">07 / EDUCATION</div><div class="'+prefix+'-modern-head"><h2>Academic<br><em>background.</em></h2></div><div class="'+prefix+'-education-grid">'+edu.map((e,i)=>'<article><span>0'+(i+1)+'</span><b>'+e[0]+'</b><strong>'+e[1]+'</strong><small>'+e[2]+'</small></article>').join('')+'</div>';
+  contact.parentNode.insertBefore(career,contact);
+  contact.parentNode.insertBefore(education,contact);
+}
+function run(){cleanLegacyDuplicate();modernRecognition();modernCareerEducation();ensureControls()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(run,120),{once:true});else setTimeout(run,120);new MutationObserver(()=>{if(!document.getElementById('amjid-profile-toolbar'))setTimeout(run,20)}).observe(document.body,{childList:true});
 })();
