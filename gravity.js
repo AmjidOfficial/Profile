@@ -1,0 +1,68 @@
+(()=>{"use strict";
+const D={name:"Muhammad Amjid",email:"amjid.psh@gmail.com",photo:"assets/images/Muhammad-Amjid.jpeg",resume:"assets/resume/Muhammad-Amjid-Resume.pdf",linkedin:"https://www.linkedin.com/in/amjid1988/",github:"https://github.com/AmjidOfficial/",bazar:"https://bazar360.online/"};
+const jobs=[
+["2022 → Present","Regional Sales Manager – North","Aziz Group of Industries","Regional FMCG sales across North Pakistan. 45+ distributors and a field force of 1 Sales Coordinator, 1 ASM, 6 TSMs and 22 Order Bookers."],
+["Aug 2021 → Mar 2022","FMCG Distributor Operations – Peshawar","FMCG Distributor Operations","Managed snacks, biscuits and beverages distribution, secondary sales tracking, retail execution and demand fulfillment."],
+["Jun 2019 → Jul 2021","Zonal Sales Manager – KPK","Volka Food International (Cookania)","Managed zonal sales operations, forecasting, demand planning, RTM execution, distribution expansion and field-force productivity."],
+["Feb 2017 → Jun 2019","Area Sales Manager – Peshawar","Ismail Industries Limited","Managed distributor and field sales operations in General Trade, secondary sales, merchandising and SKU availability."],
+["Jul 2016 → Feb 2017","Area Sales Manager (Acting – KPK)","Ismail Industries Limited","Supervised outstation markets across KPK, distributor KPIs, RTM compliance and field training."],
+["Feb 2014 → Jun 2016","Territory Sales Manager – Peshawar","Ismail Industries Limited","Managed territory FMCG sales operations, forecasting, demand execution, retail coverage and distributor engagement."],
+["Nov 2009 → Feb 2014","Sales Representative – FMCG (PepsiCo Lays)","Muller & Phipps / Shakir & Associates","Executed primary and secondary General Trade sales, retailer relationships, trade promotions and field execution."]
+];
+const projects=[
+{id:"smart",type:"SALES TRANSFORMATION",title:"SMART Sales App & Web Portal",text:"Head office digital transformation initiative for real-time sales tracking, GPS monitoring, attendance and KPI dashboards.",tone:"dark"},
+{id:"pulse",type:"AI ANALYTICS",title:"SalesPulse AI Analytics System",text:"AI analytics system for Brand, SKU, Order Booker and route-level performance tracking and reporting, created using Gemini AI Studio. No public repository is displayed.",tone:"accent"},
+{id:"bazar",type:"DIGITAL COMMERCE",title:"Bazar360.online",text:"Automotive marketplace platform with an online ecosystem for the automotive sector.",tone:"paper"}
+];
+const awards=[
+["2025–26","Best Region Award","Company recognition for regional performance."],
+["5 Sep 2026","Special Recognition (Cash Prize)","Special recognition from Chairman Aziz Group of Industries, Mohsin Aziz Sb."],
+["Sep 2026","SalesPulse AI Analytics System Creator","Created SalesPulse in February 2026 using Gemini AI Studio; recognition awarded at the Annual Sales Conference 2025–26."],
+["2023–24","Best Regional Sales Manager – National Level","National-level recognition for top regional performance."],
+["2023","SMART Sales App Project Lead","Head Office digital transformation initiative."],
+["2019–20","National Champion ZSM Award","National Champion recognition."],
+["2018","Billion Sales Achievement Team","Member of the Billion Sales Achievement Team."]
+];
+const education=[["MBA (Executive)","Gomal University","2018–2020"],["MA Islamic Studies","Bacha Khan University","2018"],["BA","University of Peshawar","2015–2016"],["DAE Electrical","BTE KPK","2004–2007"],["SSC","BISE Peshawar","2004"]];
+const skills=["FMCG Sales Systems","Sales Forecasting Tools","Demand Planning Systems","CRM Platforms","Excel Advanced Reporting","AI-Based Analytics (Gemini AI Studio)","Field Force Tracking Systems","KPI Dashboards","Sales Automation Tools","Numeric Distribution","Weighted Distribution","Retail Execution Excellence","Route-to-Market (RTM) Optimization","Primary Sales Planning","Secondary Sales Tracking","Category Development","Distributor Management","Field Force Leadership","FMCG GT Sales","Sales KPI Management"];
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const A=(u,t)=>'<a href="'+u+'" target="_blank" rel="noopener noreferrer">'+t+'</a>';
+function render(){
+document.getElementById("app").innerHTML='<div class="site">'+
+'<header class="nav"><a class="logo" href="#home">AMJID<span>/26</span></a><nav class="nav-links">'+["home","about","focus","work","career","recognition","education","contact"].map((x,i)=>'<a href="#'+x+'">'+(["Home","About","Focus","Work","Career","Recognition","Education","Contact"][i])+"</a>").join("")+'</nav><div class="controls"><button class="control" id="themeBtn">Theme</button></div><button class="menu" id="menu">☰</button></header>'+
+'<div class="profile-menu"><a href="?profile=gravity" data-profile="gravity">Gravity</a><a href="?profile=editorial" data-profile="editorial">Editorial</a><a href="?profile=cinematic" data-profile="cinematic">Cinematic</a></div>'+
+'<main>'+
+'<section id="home" class="hero"><div class="hero-main reveal"><div class="kicker">Muhammad Amjid · Regional Sales Manager · North Pakistan</div><h1>Sales <span class="outline">with</span> <span class="accent">purpose.</span></h1><p class="hero-intro">15+ years in FMCG sales leadership, General Trade, Route-to-Market, distributor management, forecasting, demand planning, field force leadership and practical digital transformation.</p><div class="hero-meta"><span class="tag">45+ Distributors</span><span class="tag">25% Detergent Share</span><span class="tag">#1 among 6 RSMs</span></div></div><div class="hero-side reveal"><img class="portrait" src="'+D.photo+'" alt="Muhammad Amjid" width="310" height="388" fetchpriority="high"><p class="side-note">Peshawar, Pakistan<br>Commercial growth, field execution and sales technology.</p><a class="work-link" href="#work">Explore selected work ↗</a></div><span class="scroll">Scroll to explore ↓</span></section>'+
+'<section id="about" class="section"><div class="section-head"><div class="index">01 / About</div><h2>Commercial growth<br>with <em>field reality.</em></h2></div><div class="intro-grid"><p>I lead FMCG sales operations with a focus on market coverage, distribution, execution and useful numbers.</p><p class="small-copy">My work combines sales leadership with digital systems. I led the SMART Sales App initiative and created the SalesPulse AI analytics system using Gemini AI Studio. The goal is simple: make field information easier to use and help teams execute better.</p></div><div class="stats"><div class="stat"><b>15+</b><span>Years in FMCG</span></div><div class="stat"><b>45+</b><span>Distributors managed</span></div><div class="stat"><b>25%</b><span>Detergent category share</span></div><div class="stat"><b>#1</b><span>Among 6 RSMs</span></div></div></section>'+
+'<section id="focus" class="section"><div class="section-head"><div class="index">02 / Focus</div><h2>For every point<br>of <em>execution.</em></h2></div><div class="focus-grid">'+[
+["01","Sales Leadership","Regional strategy, forecasting, target execution, distributor performance and field-force leadership."],
+["02","RTM & Distribution","Numeric and weighted distribution, route optimization, coverage, availability and retail execution."],
+["03","Sales Analytics","Brand, SKU, Order Booker and route-level reporting, KPI dashboards and advanced reporting."],
+["04","Digital Transformation","Sales automation, field-force tracking and practical systems around real field workflows."]
+].map(x=>'<article class="focus reveal"><span class="num">'+x[0]+'</span><h3>'+x[1]+'</h3><p>'+x[2]+'</p></article>').join("")+'</div></section>'+
+'<section id="work" class="section"><div class="section-head"><div class="index">03 / Selected work</div><h2>Work<br>with a <em>purpose.</em></h2></div><div class="work-grid">'+projects.map((p,i)=>'<article class="work-card '+p.tone+' reveal"><div><div class="work-top"><span>'+p.type+'</span><span>0'+(i+1)+'</span></div><h3>'+p.title+'</h3><p>'+p.text+'</p></div><div class="work-bottom"><span class="tag">'+(p.id==="bazar"?"LIVE PLATFORM":"CASE STUDY")+'</span>'+(p.id==="bazar"?'<a class="work-link" href="'+D.bazar+'" target="_blank" rel="noopener">Open platform ↗</a>':'<button class="work-link" data-case="'+p.id+'">View details ↗</button>')+'</div></article>').join("")+'</div></section>'+
+'<section id="career" class="section"><div class="section-head"><div class="index">04 / Career</div><h2>2009 →<br><em>Present.</em></h2></div><div class="timeline">'+jobs.map(j=>'<article class="job reveal"><div class="year">'+j[0]+'</div><div><h3>'+esc(j[1])+'</h3><strong>'+esc(j[2])+'</strong><p>'+esc(j[3])+'</p></div><div class="type">Experience</div></article>').join("")+'</div></section>'+
+'<section id="recognition" class="section"><div class="section-head"><div class="index">05 / Recognition</div><h2>Recognition<br>for <em>impact.</em></h2></div><div class="recognition-grid">'+awards.map(a=>'<article class="award reveal"><strong>'+esc(a[0])+'</strong><div><h3>'+esc(a[1])+'</h3><p>'+esc(a[2])+'</p></div></article>').join("")+'</div></section>'+
+'<section id="education" class="section"><div class="section-head"><div class="index">06 / Education</div><h2>Academic<br><em>background.</em></h2></div><div class="edu-grid">'+education.map((e,i)=>'<article class="edu reveal"><b>0'+(i+1)+'</b><strong>'+esc(e[0])+'</strong><span>'+esc(e[1])+' · '+esc(e[2])+'</span></article>').join("")+'</div><div style="margin-top:60px;border-top:1px solid var(--line);padding-top:28px"><div class="index">Technical & commercial skills</div><div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:18px">'+skills.map(s=>'<span class="tag">'+esc(s)+'</span>').join("")+'</div></div></section>'+
+'<section id="contact" class="section contact"><div class="section-head"><div class="index">07 / Contact</div><h2>Let’s<br><em>connect.</em></h2></div><div class="contact-grid"><div class="contact-copy"><p>For professional opportunities, sales leadership discussions, digital sales projects or collaboration, use the direct links.</p><div class="contact-links">'+A("mailto:"+D.email,"Email · "+D.email)+A(D.linkedin,"LinkedIn · /in/amjid1988")+A(D.github,"GitHub · @AmjidOfficial")+A(D.resume,"Download Resume ↗")+'</div></div><form id="contactForm"><input name="name" required placeholder="Your name"><input name="email" required type="email" placeholder="Your email"><textarea name="message" required placeholder="Your message"></textarea><button>Send message ↗</button></form></div></section></main>'+
+'<footer><span>© 2026 Muhammad Amjid</span><span>Sales · Distribution · Analytics · Digital Transformation</span></footer>'+
+'<div class="modal" id="modal"><div class="modal-card"><button class="modal-close" id="modalClose">×</button><div class="index" id="modalType"></div><h3 id="modalTitle"></h3><p id="modalText"></p><a class="work-link" id="modalAction" href="#contact">Discuss this work ↗</a></div></div>'+
+'</div>';
+bind();
+}
+function bind(){
+const menu=document.getElementById("menu"),nav=document.querySelector(".nav-links");menu.onclick=()=>{nav.classList.toggle("open");menu.textContent=nav.classList.contains("open")?"×":"☰"};nav.querySelectorAll("a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.08});document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+const secs=[...document.querySelectorAll("main section[id]")],links=[...document.querySelectorAll(".nav-links a")];const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -45% 0px"});secs.forEach(s=>so.observe(s));
+document.querySelectorAll("[data-case]").forEach(b=>b.onclick=()=>openCase(b.dataset.case));
+document.getElementById("modalClose").onclick=closeCase;document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeCase()};
+document.getElementById("contactForm").onsubmit=e=>{e.preventDefault();const f=new FormData(e.currentTarget);location.href="mailto:"+D.email+"?subject="+encodeURIComponent("Portfolio contact from "+f.get("name"))+"&body="+encodeURIComponent(f.get("message")+"\n\nEmail: "+f.get("email"))};
+document.getElementById("themeBtn").onclick=()=>{const t=document.body.classList.contains("theme-dark")?"neumorphic":document.body.classList.contains("theme-neumorphic")?"light":"dark";setTheme(t)};
+setTheme(localStorage.getItem("amjid-theme")||"light");setProfile(localStorage.getItem("amjid-profile")||new URLSearchParams(location.search).get("profile")||"gravity");
+}
+function openCase(id){const p=projects.find(x=>x.id===id);document.getElementById("modalType").textContent=p.type;document.getElementById("modalTitle").textContent=p.title;document.getElementById("modalText").textContent=p.text;document.getElementById("modal").classList.add("open");document.body.style.overflow="hidden"}
+function closeCase(){document.getElementById("modal").classList.remove("open");document.body.style.overflow=""}
+function setTheme(t){t=t==="dark"||t==="neumorphic"||t==="light"?t:"light";document.body.classList.remove("theme-dark","theme-neumorphic");if(t!=="light")document.body.classList.add("theme-"+t);localStorage.setItem("amjid-theme",t)}
+function setProfile(p){p=p==="editorial"||p==="cinematic"||p==="gravity"?p:"gravity";localStorage.setItem("amjid-profile",p);document.querySelectorAll("[data-profile]").forEach(a=>a.classList.toggle("active",a.dataset.profile===p));document.documentElement.dataset.profile=p}
+render();
+})();
