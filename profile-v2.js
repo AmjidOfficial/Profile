@@ -132,5 +132,6 @@ function animate(){
  const sections=[...document.querySelectorAll("main section[id]")],links=[...document.querySelectorAll(".nav-links a")];
  const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -45% 0px"});sections.forEach(s=>so.observe(s));
 }
+window.renderGravityProfile=render;
 render();
 })();
