@@ -82,8 +82,7 @@
   `;
   document.head.appendChild(style);
 
-  const observer = new MutationObserver(() => apply());
-  observer.observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('amjid:profile-rendered', apply);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply, { once: true });
   else apply();
 })();
