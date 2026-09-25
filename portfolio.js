@@ -10,7 +10,6 @@ const D={
  linkedin:'https://www.linkedin.com/in/amjid1988/',
  github:'https://github.com/AmjidOfficial/',
  profileRepo:'https://github.com/AmjidOfficial/Profile',
- bazarRepo:'https://github.com/AmjidOfficial/BAZAR360',
  bazar:'https://bazar360.online/'
 };
 
