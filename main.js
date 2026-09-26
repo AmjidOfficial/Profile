@@ -15,7 +15,7 @@ jobs:[
 ["Jul 2016 → Feb 2017","Area Sales Manager (Acting – KPK)","Ismail Industries Limited","Supervised multiple outstation markets across KPK while monitoring distributor KPIs, route coverage and RTM execution. Supported field training, market follow-up and sales performance improvement across assigned teams and territories."],
 ["Feb 2014 → Jun 2016","Territory Sales Manager – Peshawar","Ismail Industries Limited","Feb 2014 – Jun 2016. Managed territory-level FMCG sales operations in General Trade. Used structured sales forecasting, target planning and demand execution to achieve targets. Strengthened outlet coverage, retailer relationships, product availability and distributor engagement."],
 ["Nov 2009 → Feb 2014","Sales Representative – FMCG (PepsiCo Lays)","Muller & Phipps / Shakir & Associates","Executed primary and secondary sales in General Trade for PepsiCo Lays. Built and maintained retailer relationships, followed outlet availability and visibility, supported trade promotions and carried out day-to-day field execution across the assigned territory."]
-]
+],
 awards:[
 ["2025–26","Best Region Award","Company recognition for regional performance."],
 ["5 Sep 2026","Special Recognition (Cash Prize)","Special recognition from Chairman Aziz Group of Industries, Mohsin Aziz Sb."],
