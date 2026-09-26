@@ -151,3 +151,73 @@ h1,h2,h3,.cv-hero h1,.cv-section h2,.cv-contact h2,.ev-hero h1,.ev-section h2,.e
 @media(prefers-reduced-motion:reduce){
  .profile-gravity .job,.profile-gravity .award,.profile-gravity .edu,.profile-gravity .stat{transition:none}
 }
+/* Final cinematic theme harmonization */
+.theme-neumorphic .source-cinematic .cinematic-site{
+  background:
+    radial-gradient(circle at 76% 14%,rgba(21,158,154,.14),transparent 25%),
+    radial-gradient(circle at 18% 82%,rgba(89,103,219,.10),transparent 28%),
+    #e7ebef;
+  color:#182026;
+}
+.theme-neumorphic .source-cinematic .cv-nav{background:linear-gradient(#e7ebeff5,rgba(231,235,239,.62),transparent)}
+.theme-neumorphic .source-cinematic .cv-brand,
+.theme-neumorphic .source-cinematic .cv-hero h1,
+.theme-neumorphic .source-cinematic .cv-section h2,
+.theme-neumorphic .source-cinematic .cv-contact h2{color:#182026}
+.theme-neumorphic .source-cinematic .cv-project{
+  background:linear-gradient(145deg,#edf1f4,#dfe4e8);
+  border-color:rgba(24,32,38,.12);
+  box-shadow:12px 18px 42px rgba(65,76,86,.16),-10px -10px 28px rgba(255,255,255,.88);
+}
+.theme-neumorphic .source-cinematic .cv-project p,
+.theme-neumorphic .source-cinematic .cv-copy p,
+.theme-neumorphic .source-cinematic .cv-career-head p{color:#66727b}
+.theme-neumorphic .source-cinematic .cv-career{background:linear-gradient(#e7ebef,#dfe4e8)}
+.theme-neumorphic .source-cinematic .cv-label,
+.theme-neumorphic .source-cinematic .cv-kicker,
+.theme-neumorphic .source-cinematic .cv-scan{color:#66727b}
+
+.theme-light .source-cinematic .cinematic-site{
+  background:
+    radial-gradient(circle at 76% 14%,rgba(78,85,200,.10),transparent 25%),
+    radial-gradient(circle at 18% 82%,rgba(118,100,217,.08),transparent 28%),
+    #faf9f5;
+  color:#17191d;
+}
+.theme-light .source-cinematic .cv-nav{background:linear-gradient(#faf9f5f5,rgba(250,249,245,.62),transparent)}
+.theme-light .source-cinematic .cv-brand,
+.theme-light .source-cinematic .cv-hero h1,
+.theme-light .source-cinematic .cv-section h2,
+.theme-light .source-cinematic .cv-contact h2{color:#17191d}
+.theme-light .source-cinematic .cv-project{
+  background:linear-gradient(145deg,#fff,#f1efe9);
+  border-color:rgba(23,25,29,.12);
+  box-shadow:10px 18px 42px rgba(30,25,20,.09);
+}
+.theme-light .source-cinematic .cv-project p,
+.theme-light .source-cinematic .cv-copy p,
+.theme-light .source-cinematic .cv-career-head p{color:#68717a}
+.theme-light .source-cinematic .cv-career{background:linear-gradient(#faf9f5,#f1efe9)}
+.theme-light .source-cinematic .cv-label,
+.theme-light .source-cinematic .cv-kicker,
+.theme-light .source-cinematic .cv-scan{color:#68717a}
+
+.theme-dark .source-cinematic .cinematic-site{
+  background:
+    radial-gradient(circle at 76% 14%,rgba(54,201,193,.11),transparent 25%),
+    radial-gradient(circle at 18% 82%,rgba(111,120,255,.09),transparent 28%),
+    #07090c;
+}
+.theme-dark .source-cinematic .cv-project{
+  background:linear-gradient(145deg,#111820,#090d12);
+  border-color:rgba(255,255,255,.13);
+}
+.theme-dark .source-cinematic .cv-career{background:linear-gradient(#07090c,#0b1016)}
+
+.source-cinematic .cv-brand-photo{
+  width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:center top;
+  border:1px solid color-mix(in srgb,var(--premium-accent) 60%,transparent);
+  box-shadow:0 0 24px color-mix(in srgb,var(--premium-accent) 18%,transparent);
+}
+.source-cinematic .cv-brand{display:flex;align-items:center;gap:10px}
+.source-cinematic .cv-brand span{color:inherit!important}
