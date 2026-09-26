@@ -5,12 +5,12 @@ type Profile="gravity"|"editorial"|"cinematic";
 type Ctx={theme:Theme;profile:Profile;setTheme:(x:Theme)=>void;setProfile:(x:Profile)=>void};
 const ThemeContext=createContext<Ctx|null>(null);
 export function ThemeProvider({children}:{children:React.ReactNode}){
-  const [theme,setThemeState]=useState<Theme>("neumorphic");
+  const [theme,setThemeState]=useState<Theme>("dark");
   const [profile,setProfileState]=useState<Profile>("gravity");
   useEffect(()=>{
     const t=localStorage.getItem("amjid-theme") as Theme|null;
     const p=localStorage.getItem("amjid-profile") as Profile|null;
-    if(t) setThemeState(["neumorphic","light","dark","cinematic"].includes(t)?t:"neumorphic");
+    if(t) setThemeState(["neumorphic","light","dark","cinematic"].includes(t)?t:"dark");
     if(p) setProfileState(["gravity","editorial","cinematic"].includes(p)?p:"gravity");
   },[]);
   useEffect(()=>{document.documentElement.dataset.theme=theme;document.documentElement.dataset.profile=profile;localStorage.setItem("amjid-theme",theme);localStorage.setItem("amjid-profile",profile)},[theme,profile]);

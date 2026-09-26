@@ -1,8 +1,9 @@
 [build]
-  publish = "."
+  command = "npm ci && npm run build"
+  publish = "out"
 
 [build.environment]
-  NODE_VERSION = "24"
+  NODE_VERSION = "22"
 
 [[headers]]
   for = "/*"
