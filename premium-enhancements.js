@@ -1,0 +1,37 @@
+(()=>{"use strict";
+const JOBS=[
+{period:"Mar 2022 → Present",title:"Regional Sales Manager – North",company:"Aziz Group of Industries",tag:"Regional FMCG Leadership",summary:"Lead regional FMCG sales operations across North Pakistan with responsibility for distributor performance, field-force leadership, demand planning, route-to-market execution and commercial growth.",details:["Manage 45+ distributors across the North Pakistan General Trade network.","Lead a field structure of 1 Sales Coordinator, 1 ASM, 6 TSMs and 22 Order Bookers.","Own sales forecasting, demand planning, primary sales planning and secondary sales tracking.","Drive numeric distribution and weighted distribution expansion.","Lead RTM optimization, retail coverage, product availability and merchandising compliance.","Spearheaded the SMART Sales App & Web Portal for real-time sales tracking, GPS monitoring, attendance and KPI dashboards.","Created the SalesPulse AI analytics system using Gemini AI Studio for Brand, SKU, Order Booker and route-level performance tracking.","Achieved 25% company-wide share in the Detergent Category and ranked #1 among 6 Regional Sales Managers."]},
+{period:"Aug 2021 → Mar 2022",title:"FMCG Distributor Operations – Peshawar",company:"FMCG Distributor Operations",tag:"Distribution Operations",summary:"Managed distributor-side FMCG operations across high-volume General Trade categories with focus on execution, availability and demand fulfillment.",details:["Managed distribution across snacks, biscuits and beverages categories.","Tracked secondary sales and supported demand fulfillment.","Maintained distributor relationships and product availability across the GT network.","Supported numeric distribution expansion and market coverage improvement.","Coordinated retail execution and field-level follow-up."]},
+{period:"Jun 2019 → Jul 2021",title:"Zonal Sales Manager – KPK",company:"Volka Food International (Cookania)",tag:"Zonal Sales Leadership",summary:"Managed zonal sales operations across KPK with a focus on forecasting, RTM, distribution growth and field-force productivity.",details:["Managed zonal sales operations and commercial planning across KPK.","Led sales forecasting and demand planning.","Expanded numeric and weighted distribution.","Executed RTM plans and trade marketing campaigns.","Improved field-force productivity and distributor performance.","Strengthened retail execution and market coverage."]},
+{period:"Feb 2017 → Jun 2019",title:"Area Sales Manager – Peshawar",company:"Ismail Industries Limited",tag:"Area Sales Management",summary:"Managed distributor and field-sales operations in General Trade while improving execution, availability and market penetration.",details:["Managed distributor network and field sales operations in General Trade.","Delivered growth through secondary sales tracking and primary sales execution.","Maintained merchandising compliance and retail execution excellence.","Improved SKU availability and market penetration.","Monitored market coverage and distributor performance."]},
+{period:"Jul 2016 → Feb 2017",title:"Area Sales Manager (Acting – KPK)",company:"Ismail Industries Limited",tag:"Acting Area Leadership",summary:"Supervised multiple outstation markets across KPK while maintaining distributor KPIs, RTM compliance and field capability.",details:["Supervised multiple outstation markets across KPK.","Monitored distributor KPIs and RTM execution compliance.","Supported field training and sales-performance improvement.","Followed territory execution and market coverage."]},
+{period:"Feb 2014 → Jun 2016",title:"Territory Sales Manager – Peshawar",company:"Ismail Industries Limited",tag:"Territory Management",summary:"Managed territory-level FMCG sales operations in General Trade with a structured focus on targets, forecasting and retail coverage.",details:["Managed territory-level FMCG sales operations in General Trade.","Achieved targets through structured sales forecasting and demand execution.","Strengthened retail coverage and distributor engagement.","Supported availability and execution across assigned outlets."]},
+{period:"Nov 2009 → Feb 2014",title:"Sales Representative – FMCG (PepsiCo Lays)",company:"Muller & Phipps / Shakir & Associates",tag:"Field Sales Foundation",summary:"Built the foundation of a career in FMCG field sales through direct General Trade execution, retailer relationships and product availability.",details:["Executed primary and secondary sales in the General Trade channel.","Built and maintained retailer relationships.","Ensured product availability across assigned outlets.","Supported trade promotions and field execution activities.","Developed practical market knowledge and outlet-level execution discipline."]}
+];
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+function careerHTML(){
+ return '<div class="premium-career-grid">'+JOBS.map((j,i)=>'<article class="premium-job reveal '+(i===0?'is-current':'')+'"><div class="premium-job-meta"><span class="premium-job-number">0'+(i+1)+' / EXPERIENCE</span><span class="premium-job-period">'+esc(j.period)+'</span></div><div class="premium-job-main"><h3>'+esc(j.title)+'</h3><span class="premium-job-company">'+esc(j.company)+'</span><p class="premium-job-summary">'+esc(j.summary)+'</p><ul class="premium-job-details">'+j.details.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><span class="premium-job-tag">'+esc(j.tag)+'</span></div></article>').join('')+'</div>';
+}
+function renderGravity(){
+ const s=document.querySelector('#career'); if(!s)return;
+ const timeline=s.querySelector('.timeline'); if(timeline){timeline.outerHTML=careerHTML();}
+ const edu=[...document.querySelectorAll('#education .edu')]; edu.forEach(x=>{if(x.textContent.includes('DAE Electrical'))x.classList.add('dae-education')});
+}
+function renderSourceProfile(){
+ const root=document.querySelector('.source-cinematic')||document.querySelector('.source-editorial'); if(!root)return;
+ const id=root.classList.contains('source-cinematic')?'cv-career':'ev-career';
+ const s=document.getElementById(id); if(!s)return;
+ const old=s.querySelector('.cv-timeline,.ev-work-grid'); if(!old)return;
+ const wrapper=document.createElement('div');wrapper.className='premium-career-grid';wrapper.innerHTML=JOBS.map((j,i)=>'<article class="premium-job"><div class="premium-job-meta"><span class="premium-job-number">0'+(i+1)+' / EXPERIENCE</span><span class="premium-job-period">'+esc(j.period)+'</span></div><div class="premium-job-main"><h3>'+esc(j.title)+'</h3><span class="premium-job-company">'+esc(j.company)+'</span><p class="premium-job-summary">'+esc(j.summary)+'</p><ul class="premium-job-details">'+j.details.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><span class="premium-job-tag">'+esc(j.tag)+'</span></div></article>').join('');
+ old.replaceWith(wrapper);
+ const edu=document.getElementById(root.classList.contains('source-cinematic')?'cv-education':'ev-education');
+ if(edu && edu.textContent.includes('DAE Electrical')) edu.querySelectorAll('article').forEach(x=>{if(x.textContent.includes('DAE Electrical'))x.classList.add('dae-education')});
+}
+function refresh(){
+ renderGravity();renderSourceProfile();
+ if(window.AmjidPortfolio&&typeof window.AmjidPortfolio.refresh==='function')window.AmjidPortfolio.refresh();
+}
+document.addEventListener('DOMContentLoaded',()=>setTimeout(refresh,80));
+window.addEventListener('amjid:profile-rendered',()=>setTimeout(refresh,80));
+})();
