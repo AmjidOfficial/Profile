@@ -8,4 +8,4 @@ The previous stable profile is preserved as the `legacy-profile-2026-08-20` bran
 
 Netlify: https://mamjid.netlify.app/
 
-The site is a static portfolio. Netlify publishes the repository root using `netlify.toml`.
+The site is a static portfolio. Netlify publishes the repository root using `netlify.toml`. GitHub Pages remains a source mirror only.
