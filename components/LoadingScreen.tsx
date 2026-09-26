@@ -11,5 +11,5 @@ export function LoadingScreen(){
     },root);
     return()=>ctx.revert();
   },[]);
-  return <div ref={root} className="loading-screen"><div className="load-orbit load-ring"/><div className="load-orbit load-ring ring-2"/><div className="load-core"><span>AMJID</span><b>/26</b></div><div className="load-meta">SALES · DATA · TRANSFORMATION</div><div className="load-track"><i className="load-bar"/></div></div>;
+  return <div ref={root} className="loading-screen"><div className="load-orbit load-ring"/><div className="load-orbit load-ring ring-2"/><div className="load-core"><span>MUHAMMAD AMJID</span></div><div className="load-meta">SALES · DATA · TRANSFORMATION</div><div className="load-track"><i className="load-bar"/></div></div>;
 }
