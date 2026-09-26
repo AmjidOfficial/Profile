@@ -44,3 +44,18 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .theme-dark .focus{background:#020407}.theme-light .focus{background:#16283a}.theme-neumorphic .focus{background:#253542}
 @media(max-width:760px){.loader-stage{width:180px!important;height:180px!important}.loader-frame{width:104px!important;height:104px!important}.loader-copy{bottom:7vh!important;font-size:11px!important}.section{border-radius:24px}}
 @media(prefers-reduced-motion:reduce){body::before,.float-orb,.loader-ring,.loader-frame,.hero-main,.hero-side{animation:none!important}}
+
+/* 2026.09 luxury portrait studio: only the frame is changed. The source image pixels are never edited. */
+.portrait-cinematic-ring .portrait-card,
+.portrait-cinematic-ring .hero-card{border-radius:30px;box-shadow:0 45px 110px rgba(0,0,0,.55),0 0 0 1px color-mix(in srgb,var(--accent) 35%,transparent),0 0 60px color-mix(in srgb,var(--accent) 12%,transparent)}
+.portrait-cinematic-ring .portrait-card:after,
+.portrait-cinematic-ring .hero-card:after{content:"";position:absolute;inset:-14px;border-radius:36px;border:1px solid color-mix(in srgb,var(--accent) 32%,transparent);pointer-events:none;animation:portraitPulse 3.5s ease-in-out infinite}
+.portrait-glass .portrait-card,
+.portrait-glass .hero-card{background:rgba(255,255,255,.055)!important;border:1px solid rgba(255,255,255,.24)!important;backdrop-filter:blur(18px) saturate(145%);box-shadow:0 38px 100px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.16)}
+.portrait-gold .portrait-card,
+.portrait-gold .hero-card{border:1px solid #d9b45c!important;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 55px rgba(217,180,92,.16)}
+.portrait-minimal .portrait-card,
+.portrait-minimal .hero-card{border:1px solid var(--line)!important;box-shadow:0 28px 70px rgba(0,0,0,.32);background:var(--surface)!important}
+.edu-highlight{border-color:color-mix(in srgb,var(--accent) 48%,var(--line))!important;box-shadow:var(--cin-shadow),0 0 38px color-mix(in srgb,var(--accent) 9%,transparent)!important}
+@keyframes portraitPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.018)}}
+@media(prefers-reduced-motion:reduce){.portrait-cinematic-ring .portrait-card:after{animation:none}}
