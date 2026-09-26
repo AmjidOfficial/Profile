@@ -59,3 +59,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .edu-highlight{border-color:color-mix(in srgb,var(--accent) 48%,var(--line))!important;box-shadow:var(--cin-shadow),0 0 38px color-mix(in srgb,var(--accent) 9%,transparent)!important}
 @keyframes portraitPulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.018)}}
 @media(prefers-reduced-motion:reduce){.portrait-cinematic-ring .portrait-card:after{animation:none}}
+
+/* Portrait studio also follows the source-video profiles. */
+.portrait-gold .cv-photo-wrap,.portrait-gold .ev-photo-wrap{border-color:#d9b45c!important;box-shadow:0 0 0 2px rgba(217,180,92,.18),0 30px 80px rgba(0,0,0,.45)!important}
+.portrait-glass .cv-photo-wrap,.portrait-glass .ev-photo-wrap{border-color:rgba(255,255,255,.28)!important;box-shadow:0 25px 70px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.14)!important;backdrop-filter:blur(14px)}
+.portrait-minimal .cv-photo-wrap,.portrait-minimal .ev-photo-wrap{border-color:var(--line)!important;box-shadow:0 22px 60px rgba(0,0,0,.25)!important}
+.portrait-cinematic-ring .cv-photo-wrap,.portrait-cinematic-ring .ev-photo-wrap{border-color:color-mix(in srgb,var(--accent) 55%,transparent)!important;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 25%,transparent),0 28px 90px color-mix(in srgb,var(--accent) 12%,transparent)!important}
