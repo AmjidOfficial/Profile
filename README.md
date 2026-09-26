@@ -1,8 +1,11 @@
 # Muhammad Amjid Portfolio
 
-Profiles: Previous Profile and Source-Video Cinematic Experience.
+Three profile experiences: Gravity, Animated Editorial, and Cinematic Experience.
 
 The previous stable profile is preserved as the `legacy-profile-2026-08-20` branch and is also available inside the site as Profile 01.
 
+## Primary deployment
 
-Live portfolio: https://mamjid.netlify.app/
+Netlify: https://mamjid.netlify.app/
+
+The site is a static portfolio. Netlify publishes the repository root using `netlify.toml`.
