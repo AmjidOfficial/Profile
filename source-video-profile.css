@@ -268,3 +268,75 @@ h1,h2,h3,h4,.ev-hero h1,.ev-section h2,.cv-hero h1,.cv-section h2,.cv-project h3
   .portrait-group{border-left:0;padding-left:0}
   .portrait-note{width:100%;text-align:center}
 }
+
+
+/* 2026.09 cinematic master polish: one consistent luxury system across profiles and themes. */
+:root{
+  --lux-font-display:'Space Grotesk','Manrope','Inter',sans-serif;
+  --lux-font-body:'Manrope','Inter',system-ui,sans-serif;
+  --lux-font-mono:'DM Mono','IBM Plex Mono',ui-monospace,monospace;
+  --lux-radius:24px;
+}
+body,.site,.cinematic-site,.editorial-site{font-family:var(--lux-font-body)}
+h1,h2,h3,.cv-hero h1,.cv-section h2,.cv-contact h2,.ev-hero h1,.ev-section h2,.ev-contact h2{font-family:var(--lux-font-display)}
+.kicker,.index,.year,.type,.cv-kicker,.cv-label,.cv-scan,.ev-eyebrow,.ev-index,.premium-job-period,.premium-job-number{font-family:var(--lux-font-mono)}
+.theme-neumorphic{
+  --lux-bg:#e7ebef;--lux-surface:#edf1f4;--lux-text:#182026;--lux-muted:#66727b;
+  --lux-accent:#159e9a;--lux-accent-2:#5967db;--lux-gold:#c99830;
+}
+.theme-light{
+  --lux-bg:#faf9f5;--lux-surface:#ffffff;--lux-text:#17191d;--lux-muted:#68717a;
+  --lux-accent:#4e55c8;--lux-accent-2:#7664d9;--lux-gold:#b98520;
+}
+.theme-dark{
+  --lux-bg:#07090c;--lux-surface:#111820;--lux-text:#f0f3f4;--lux-muted:#9ca5aa;
+  --lux-accent:#62d9ff;--lux-accent-2:#7c6cff;--lux-gold:#e7b65b;
+}
+.source-cinematic .cinematic-site{
+  background:
+    radial-gradient(900px 520px at 78% 8%,color-mix(in srgb,var(--lux-accent) 12%,transparent),transparent 62%),
+    radial-gradient(700px 500px at 10% 78%,color-mix(in srgb,var(--lux-accent-2) 9%,transparent),transparent 64%),
+    var(--lux-bg);
+  color:var(--lux-text);
+}
+.source-cinematic .cv-project,.source-editorial .ev-work-card{
+  border-color:color-mix(in srgb,var(--lux-text) 12%,transparent);
+  box-shadow:0 24px 70px rgba(0,0,0,.16),inset 0 1px rgba(255,255,255,.045);
+}
+.theme-neumorphic .source-cinematic .cv-project,.theme-neumorphic .source-editorial .ev-work-card,.theme-neumorphic .source-editorial .ev-profile-card{
+  background:linear-gradient(145deg,#f0f3f5,#dfe4e8);
+  box-shadow:14px 18px 42px rgba(65,76,86,.17),-10px -10px 28px rgba(255,255,255,.9);
+}
+.theme-light .source-cinematic .cv-project,.theme-light .source-editorial .ev-work-card{
+  background:linear-gradient(145deg,#fff,#f3f1eb);
+  box-shadow:0 20px 55px rgba(30,25,20,.09);
+}
+.theme-dark .source-cinematic .cv-project,.theme-dark .source-editorial .ev-work-card{
+  background:linear-gradient(145deg,#111820,#090d12);
+  box-shadow:0 24px 70px rgba(0,0,0,.34);
+}
+.source-cinematic .cv-hero h1 .dot,.source-cinematic .cv-section h2 em,.source-cinematic .cv-copy em,.source-cinematic .cv-project em,
+.source-editorial .ev-hero h1 .ev-accent,.source-editorial .ev-section h2 em,.source-editorial .ev-work-card h3 em{color:var(--lux-accent)}
+.source-cinematic .cv-kicker,.source-cinematic .cv-label,.source-cinematic .cv-scan,.source-editorial .ev-eyebrow,.source-editorial .ev-index{color:var(--lux-muted)}
+.source-cinematic .cv-brand-photo{
+  border-color:color-mix(in srgb,var(--lux-accent) 62%,transparent);
+  box-shadow:0 0 28px color-mix(in srgb,var(--lux-accent) 18%,transparent);
+}
+.profile-preloader{
+  background:
+    radial-gradient(circle at 50% 43%,color-mix(in srgb,var(--lux-accent,#62d9ff) 14%,transparent),transparent 34%),
+    radial-gradient(circle at 50% 82%,color-mix(in srgb,var(--lux-accent-2,#7c6cff) 9%,transparent),transparent 40%),
+    var(--lux-bg,#05070b)!important;
+  color:var(--lux-text,#f4f7fb);
+}
+.profile-preloader-photo{
+  width:126px!important;height:126px!important;border-radius:50%!important;
+  padding:5px!important;overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--lux-accent,#62d9ff) 65%,transparent)!important;
+  box-shadow:0 0 0 7px color-mix(in srgb,var(--lux-accent,#62d9ff) 6%,transparent),0 0 50px color-mix(in srgb,var(--lux-accent,#62d9ff) 22%,transparent),0 30px 90px rgba(0,0,0,.42)!important;
+}
+.profile-preloader-photo img{width:100%!important;height:100%!important;border-radius:50%!important;object-fit:cover!important;object-position:center top!important;filter:none!important}
+.profile-preloader strong{font-family:var(--lux-font-display)!important;color:var(--lux-text,#f4f7fb)!important}
+.portrait-note:before{content:'FRAME ONLY · FACE UNCHANGED';}
+.portrait-note{font-size:0}
+.portrait-note:before{font-size:8px}
