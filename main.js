@@ -32,7 +32,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"
 const A=(u,t,cls="")=>'<a class="'+cls+'" href="'+u+'" target="_blank" rel="noopener noreferrer">'+t+'</a>';
 const get=(k,d)=>localStorage.getItem(k)||d;
 const PROFILES=["gravity","editorial","cinematic"], THEMES=["neumorphic","light","dark"];
-const DEFAULT_PROFILE="gravity", DEFAULT_THEME="dark";
+const DEFAULT_PROFILE="gravity", DEFAULT_THEME="neumorphic";
 function safeStored(key,allowed,fallback){const value=localStorage.getItem(key);return allowed.includes(value)?value:fallback}
 function applyState(profile,theme,persist=true){document.body.classList.remove(...PROFILES.map(x=>"profile-"+x),...THEMES.map(x=>"theme-"+x));document.body.classList.add("profile-"+profile,"theme-"+theme);document.body.dataset.profile=profile;document.body.dataset.theme=theme;if(persist){localStorage.setItem("amjid-profile",profile);localStorage.setItem("amjid-theme",theme)}}
 function render(){
