@@ -2,7 +2,7 @@
 (()=>{'use strict';
 const PROFILE_KEY='amjid-profile';
 const THEMES=['dark','light','neumorphic'];
-const DEFAULT_PROFILE='gravity', DEFAULT_THEME='dark';
+const DEFAULT_PROFILE='gravity', DEFAULT_THEME='neumorphic';
 const MODES=[
 {id:'gravity',label:'01 · Gravity'},
 {id:'editorial',label:'02 · Animated Editorial'},
