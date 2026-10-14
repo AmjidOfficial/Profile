@@ -40,3 +40,15 @@ body[data-profile="editorial"] .hero h1,body[data-profile="editorial"] .section-
 @media(max-width:360px){.brand{font-size:11px}.control-btn{padding:0 8px}.hero h1{font-size:50px}.hero-visual{min-height:370px}.floating-note{max-width:130px}.metric strong{font-size:36px}.award-card{grid-template-columns:1fr;gap:8px}}
 @media(hover:none){.focus-card:hover,.project-card:hover{transform:none}.portrait-frame:hover{transform:rotateY(-3deg) rotateX(1deg)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+
+/* Final responsive hardening: compact phones, landscape screens, keyboard use and print. */
+html{scrollbar-gutter:stable}
+img,svg,video,canvas{max-width:100%}
+button,a,input,textarea{-webkit-tap-highlight-color:transparent}
+.hero-copy,.hero-visual,.section-head>div,.about-grid>*,.contact-grid>*,.job>div,.award-card>div,.education-card>*{min-width:0}
+#themeLabel,#profileLabel{white-space:nowrap}
+@media(max-width:420px){.topbar{gap:8px;padding-inline:12px}.brand{gap:7px;font-size:12px;letter-spacing:-.04em}.brand-mark{width:32px;height:32px;border-radius:11px;flex:0 0 auto}.brand small{font-size:7px;letter-spacing:.11em}.header-actions{gap:5px;flex:0 0 auto}.control-btn{width:36px;min-height:36px;padding:0;font-size:0;gap:0}.control-btn>span:first-child{font-size:15px}#themeLabel,#profileLabel{display:none}.menu-btn{width:36px;min-height:36px}.hero h1{font-size:clamp(46px,14.4vw,62px);letter-spacing:-.085em}.hero-actions{gap:8px}.hero-actions .button{padding-inline:12px;font-size:10px}.hero-visual{min-height:360px}.note-one{left:-3%;top:8%}.note-two{right:-3%;bottom:7%}.section-head h2{overflow-wrap:anywhere}.contact-links a{align-items:flex-start}.contact-links a span{text-align:right;overflow-wrap:anywhere}}
+@media(max-width:340px){.brand{font-size:10px}.brand small{font-size:6px}.hero h1{font-size:45px}.hero-visual{min-height:330px}.floating-note{max-width:118px;padding:8px;font-size:8px}.floating-note strong{font-size:14px}.note-icon{width:26px!important;height:26px!important}.hero-actions .button{padding-inline:9px}}
+@media(max-height:520px) and (orientation:landscape){.topbar{position:relative}.hero{min-height:auto;padding-block:36px}.hero-visual{min-height:320px}.portrait-frame{width:min(230px,38vh)}.portrait-halo{width:min(45vh,300px)}}
+@media print{body{background:#fff!important;color:#111!important;overflow:visible!important}.topbar,.mobile-nav,.hero-actions,.floating-note,.portrait-halo,.contact-form,.modal-backdrop{display:none!important}main{padding:0!important}.hero{min-height:0!important;grid-template-columns:1fr 220px!important;padding:20px 0!important}.hero h1{font-size:42px!important;color:#111!important}.section{padding:24px 0!important;break-inside:avoid}.reveal{opacity:1!important;transform:none!important}.focus-card,.project-card,.award-card,.education-card{box-shadow:none!important;break-inside:avoid}a{color:#111!important;text-decoration:none!important}footer{padding:16px 0!important}}
