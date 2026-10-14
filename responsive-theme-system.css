@@ -127,3 +127,31 @@ button{min-height:44px}
   *{box-shadow:none!important}
   .button,.pill-btn,.switch-btn,.menu-btn{border:1px solid ButtonText}
 }
+
+/* Portfolio rebuild pass: Neumorphic is the first-visit default, with theme-aware portrait framing. */
+body.theme-neumorphic .hero-side{
+  padding:clamp(14px,2vw,24px);
+  border:1px solid rgba(255,255,255,.48);
+  border-radius:28px;
+  background:linear-gradient(145deg,#e9eef1,#d4dce1);
+  box-shadow:14px 16px 32px rgba(75,88,98,.20),-12px -12px 28px rgba(255,255,255,.92);
+}
+body.theme-light .hero-side{
+  padding:clamp(14px,2vw,24px);
+  border:1px solid rgba(16,22,26,.12);
+  border-radius:28px;
+  background:linear-gradient(145deg,#fff,#edf2f5);
+  box-shadow:0 24px 60px rgba(16,22,26,.12);
+}
+body.theme-dark .hero-side{
+  padding:clamp(14px,2vw,24px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:28px;
+  background:linear-gradient(145deg,#111a25,#080c12);
+  box-shadow:0 28px 70px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.05);
+}
+.hero-side .portrait{width:100%;height:auto;max-height:540px;object-fit:cover;object-position:center top;border-radius:18px!important}
+.hero-side .side-note{margin-top:16px}
+.hero-side .work-link{margin-top:12px}
+@media(max-width:900px){.hero-side{width:min(100%,430px);margin-inline:auto}}
+@media(prefers-reduced-motion:reduce){.hero-side,.hero-side .portrait{transition:none!important}}
