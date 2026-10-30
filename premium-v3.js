@@ -4,7 +4,7 @@ const DATA={
  photo:"assets/images/Muhammad-Amjid.jpeg",resume:"assets/resume/Muhammad-Amjid-Resume.pdf",
  linkedin:"https://www.linkedin.com/in/amjid1988/",github:"https://github.com/AmjidOfficial/",
  jobs:[
-  {period:"Mar 2022 – Present",role:"Regional Sales Manager – North",company:"Aziz Group of Industries",detail:"Lead regional FMCG sales operations across North Pakistan, managing 45+ distributors and a field force including 1 Sales Coordinator, 1 ASM, 6 TSMs and 22 Order Bookers. Lead forecasting, demand planning, primary and secondary sales tracking, numeric and weighted distribution, route-to-market optimization, retail execution and merchandising compliance."},
+  {period:"Mar 2022 – Present",role:"Regional Sales Manager – North",company:"Aziz Group of Industries",detail:"Lead regional FMCG sales operations across North Pakistan, managing 45+ distributors and a field force including 1 Sales Coordinator, 1 ASM, 6 TSMs and 22 Order Bookers. Own sales forecasting, demand planning, primary sales planning and secondary sales tracking. Drive numeric and weighted distribution, route-to-market optimization, retail execution and merchandising compliance. Spearheaded the SMART Sales App & Web Portal in 2023 for real-time sales tracking, GPS monitoring, attendance and KPI dashboards. Developed SalesPulse AI analytics using Gemini AI Studio for Brand, SKU, Order Booker and route-level performance tracking."},
   {period:"Aug 2021 – Mar 2022",role:"FMCG Distributor Operations",company:"Peshawar",detail:"Managed FMCG distribution across snacks, biscuits and beverages. Supported secondary sales tracking, demand fulfillment, retail execution, distributor relationships and product availability across the General Trade network."},
   {period:"Jun 2019 – Jul 2021",role:"Zonal Sales Manager – KPK",company:"Volka Food International (Cookania)",detail:"Managed zonal sales operations, forecasting, demand planning, route-to-market execution, numeric and weighted distribution, trade marketing and field-force productivity."},
   {period:"Feb 2017 – Jun 2019",role:"Area Sales Manager – Peshawar",company:"Ismail Industries Limited",detail:"Managed distributor network and General Trade field sales. Delivered growth through secondary sales tracking, primary sales execution, merchandising compliance, SKU availability and market penetration."},
@@ -14,10 +14,11 @@ const DATA={
  ],
  awards:[
   {year:"2025–26",title:"Best Region Award",detail:"Company recognition for regional performance."},
-  {year:"2025–26",title:"Special Recognition (Cash Prize)",detail:"Recognition from Chairman Aziz Group of Industries, Mohsin Aziz Sb."},
+  {year:"2025–26",title:"Special Recognition (Cash Prize)",detail:"Special recognition from Chairman Aziz Group of Industries, Mohsin Aziz Sb."},
+  {year:"2025–26",title:"Highest Detergent Category Share · 25%",detail:"Achieved 25% company-wide share in Washing Powder and DWB, ranked #1 among 6 Regional Sales Managers."},
+  {year:"2025–26",title:"SalesPulse AI Analytics System Creator",detail:"Created SalesPulse using Gemini AI Studio for Brand, SKU, Order Booker and route-level performance tracking. Recognition recorded at the Annual Sales Conference."},
   {year:"2023–24",title:"Best Regional Sales Manager – National Level",detail:"National-level recognition for top regional performance."},
-  {year:"2023",title:"SMART Sales App Project Lead",detail:"Head office initiative for real-time sales tracking, GPS monitoring, attendance and KPI dashboards."},
-  {year:"2026",title:"SalesPulse AI Analytics System Creator",detail:"Built an analytics system using Gemini AI Studio for Brand, SKU, Order Booker and route-level performance tracking."},
+  {year:"2023",title:"SMART Sales App & Web Portal Project Lead",detail:"Head office digital transformation initiative for real-time sales tracking, GPS monitoring, attendance and KPI dashboards."},
   {year:"2019–20",title:"National Champion ZSM Award",detail:"National Champion recognition."},
   {year:"2018",title:"Billion Sales Achievement Team",detail:"Member of the Billion Sales Achievement Team."}
  ],
