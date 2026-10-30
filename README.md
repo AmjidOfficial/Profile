@@ -1,11 +1,17 @@
 # Muhammad Amjid Portfolio
 
-Three profile experiences: Gravity, Animated Editorial, and Cinematic Experience.
-
-The previous stable profile is preserved as the `legacy-profile-2026-08-20` branch and is also available inside the site as Profile 01.
+Three profile experiences: Executive (default), Editorial, and Cinematic. The original profile design and theme controls are preserved.
 
 ## Primary deployment
 
-Netlify: https://mamjid.netlify.app/
+GitHub Pages: https://amjidofficial.github.io/Profile/
 
-The site is a static portfolio. Netlify publishes the repository root using `netlify.toml`. GitHub Pages remains a source mirror only.
+The static site is published from the repository root by the GitHub Actions workflow in `.github/workflows/pages.yml` whenever changes are pushed to `main`.
+
+## Other hosting configuration
+
+A `netlify.toml` file is retained for optional Netlify hosting. GitHub Pages is the deployment currently automated by this repository.
+
+## Source
+
+The main live entry point is `index.html`, which loads `premium-v3.css` and `premium-v3.js`. Update those active files when changing the default live profile. Other CSS and JavaScript files contain alternate or legacy profile implementations.
