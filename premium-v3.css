@@ -52,3 +52,13 @@ button,a,input,textarea{-webkit-tap-highlight-color:transparent}
 @media(max-width:340px){.brand{font-size:10px}.brand small{font-size:6px}.hero h1{font-size:45px}.hero-visual{min-height:330px}.floating-note{max-width:118px;padding:8px;font-size:8px}.floating-note strong{font-size:14px}.note-icon{width:26px!important;height:26px!important}.hero-actions .button{padding-inline:9px}}
 @media(max-height:520px) and (orientation:landscape){.topbar{position:relative}.hero{min-height:auto;padding-block:36px}.hero-visual{min-height:320px}.portrait-frame{width:min(230px,38vh)}.portrait-halo{width:min(45vh,300px)}}
 @media print{body{background:#fff!important;color:#111!important;overflow:visible!important}.topbar,.mobile-nav,.hero-actions,.floating-note,.portrait-halo,.contact-form,.modal-backdrop{display:none!important}main{padding:0!important}.hero{min-height:0!important;grid-template-columns:1fr 220px!important;padding:20px 0!important}.hero h1{font-size:42px!important;color:#111!important}.section{padding:24px 0!important;break-inside:avoid}.reveal{opacity:1!important;transform:none!important}.focus-card,.project-card,.award-card,.education-card{box-shadow:none!important;break-inside:avoid}a{color:#111!important;text-decoration:none!important}footer{padding:16px 0!important}}
+
+.video-gallery{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:14px;align-items:stretch}
+.video-card{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:8px 8px 18px var(--shadow-dark),-7px -7px 18px var(--shadow-light)}
+.video-card video{display:block;width:100%;max-height:520px;aspect-ratio:16/9;object-fit:contain;background:#05090d}
+.video-card.compact video{aspect-ratio:9/16;max-height:520px}
+.video-caption{padding:18px 20px}
+.video-caption h3{margin:0;font-size:19px;letter-spacing:-.04em}
+.video-caption p{margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.7}
+@media(max-width:760px){.video-gallery{grid-template-columns:1fr}.video-card video,.video-card.compact video{max-height:420px}.video-card.compact video{aspect-ratio:16/9;object-fit:contain}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
