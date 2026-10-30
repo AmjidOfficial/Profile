@@ -1,21 +1,19 @@
 # Muhammad Amjid Portfolio
 
-Three profile experiences: Executive (default), Editorial, and Cinematic. The original profile design and theme controls are preserved.
+Three profile experiences: Executive (default), Editorial, and Cinematic. The existing profile structure is preserved. The default colour theme is Neumorphic, with Midnight and Warm Paper alternatives.
 
-## Primary deployment
+## Primary hosting
 
-GitHub Pages: https://amjidofficial.github.io/Profile/
+- GitHub Pages: https://amjidofficial.github.io/Profile/
+- Netlify: configured for static deployment from the repository root using `netlify.toml`.
 
-The static site is published from the repository root by the GitHub Actions workflow in `.github/workflows/pages.yml` whenever changes are pushed to `main`.
+Both hosts publish the same static website. GitHub Pages deploys automatically when changes are pushed to `main`. Netlify can connect to the same repository and deploy from the root with no build command.
 
 ## Active source
 
-The live entry point is `index.html`, which loads `premium-v3.css` and `premium-v3.js`. The Executive profile opens by default. Theme and profile choices are saved in the browser.
+The live entry point is `index.html`, which loads `premium-v3.css` and `premium-v3.js`. Theme and profile choices are saved in the browser.
 
 ## Media
 
-Award videos are stored in `assets/videos/`. The résumé is served from `assets/resume/Muhammad-Amjid-Resume.pdf`.
-
-## Hosting
-
-This repository uses GitHub Pages only. Vercel and Netlify configuration and the unused Next.js application scaffold have been removed.
+- Award videos: `assets/videos/RSM-Amjid-Award-Recognition.mp4` and `assets/videos/Amjid-Award-Presentation.mp4`.
+- Résumé: `assets/resume/Muhammad-Amjid-Resume.pdf`.
