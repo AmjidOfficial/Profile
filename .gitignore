@@ -1,0 +1,5 @@
+# Local tooling and deployment state
+.vercel/
+.netlify/
+node_modules/
+.DS_Store
