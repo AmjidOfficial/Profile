@@ -12,6 +12,9 @@ for (const project of ["smart-sales","salespulse-ai","bazar360","n-link360","dis
 for (const filter of ["all","photos","videos","dashboard","awards"]) assert.ok(html.includes('data-filter="'+filter+'"'), "Missing gallery filter: "+filter);
 assert.ok(html.includes('href="https://wa.me/923149198403"'), "WhatsApp link missing or incorrect");
 assert.ok(html.includes('data-theme="dark"'), "Dark theme must be the default");
+assert.ok(html.includes('src="assets/images/Muhammad-Amjid.jpeg"'), "Portfolio must use the verified local profile photo");
+assert.ok(html.includes('href="assets/resume/Muhammad-Amjid-Resume.pdf"'), "Portfolio must use the verified local résumé file");
+assert.ok(html.includes('href="https://mamjid.netlify.app/"'), "Canonical URL should point to the current Netlify profile");
 assert.ok(js.includes("indexedDB.open") && js.includes("createObjectURL") && js.includes("requestFullscreen"), "Media persistence, previews and fullscreen support should be present");
 assert.ok(js.includes("youtube-nocookie.com/embed/") && js.includes("safeHttpUrl"), "YouTube and safe public URL support should be present");
 assert.ok(css.includes("@media(max-width:600px)") && css.includes("prefers-reduced-motion"), "Responsive and reduced-motion styles should be present");
