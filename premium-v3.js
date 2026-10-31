@@ -15,7 +15,7 @@ function allMedia(){return transaction("readonly",s=>s.getAll())}
 function saveMedia(item){return transaction("readwrite",s=>s.put(item))}
 function removeMedia(id){return transaction("readwrite",s=>s.delete(id))}
 function makeId(){return "m_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,9)}
-function fileKind(file){return file.type.startsWith("image/")?"image":"video"}
+function fileKind(file){const ext=(file.name.split(".").pop()||"").toLowerCase();return file.type.startsWith("image/")||["jpg","jpeg","png","webp"].includes(ext)?"image":"video"}
 function validateFile(file){const ext=(file.name.split(".").pop()||"").toLowerCase();const ok=allowedTypes.includes(file.type)||["jpg","jpeg","png","webp","mp4","webm"].includes(ext);if(!ok)return "Unsupported file: "+file.name;if(file.size>MAX_FILE)return "File is larger than 150 MB: "+file.name;return ""}
 function getMeta(){return {title:$("#mediaTitle").value.trim(),category:$("#mediaCategory").value,caption:$("#mediaCaption").value.trim(),projectKey:$("#mediaProject").value}}
 function getYoutubeId(url){try{const u=new URL(url);if(u.hostname==="youtu.be")return u.pathname.slice(1).split("/")[0];if(u.hostname.endsWith("youtube.com")){if(u.pathname==="/watch")return u.searchParams.get("v");const parts=u.pathname.split("/");if(["embed","shorts","live"].includes(parts[1]))return parts[2]}return null}catch(_){return null}}
