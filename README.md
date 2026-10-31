@@ -1,21 +1,39 @@
-# Muhammad Amjid Portfolio
+# Muhammad Amjid | Executive Portfolio
 
-Three profile experiences: Executive (default), Editorial, and Cinematic. The existing profile structure is preserved. Neumorphic is the default colour theme, with Midnight and Warm Paper alternatives.
+A responsive static portfolio for Muhammad Amjid. The site uses plain HTML, CSS and modern JavaScript to stay compatible with the existing Netlify static-site setup.
 
-## Primary hosting
+## Features
 
-- GitHub Pages: https://amjidofficial.github.io/Profile/
-- Netlify: deploy the repository root using the included `netlify.toml` (no build command).
+- Dark executive theme by default, with one accessible dark/light toggle.
+- Responsive navigation and reduced-motion support.
+- Circular profile photo in the header and animated loading screen.
+- Executive summary, expertise, five project cards, career timeline, recognition, education and contact links.
+- Media hub with file picker, drag-and-drop, metadata, filters, preview lightbox, fullscreen viewing and HTML5 video controls.
+- IndexedDB stores local media blobs in the current browser. Local uploads are not public and do not sync between devices.
+- Public image, direct video and YouTube URLs can be added to the local gallery.
+- Project demo buttons filter the gallery by project. If media is missing, the upload form is pre-filled for that project.
+- WhatsApp, email, LinkedIn, GitHub and résumé links.
 
-GitHub Pages deploys automatically when changes are pushed to `main`. Netlify can connect to the same GitHub repository and deploy the same static files. These are the only supported hosting targets for this project. Vercel configuration and deployment files are not part of this source.
+## Run locally
 
-## Active source
+Open `index.html` through a local static server:
 
-The live entry point is `index.html`, which loads `premium-v3.css` and `premium-v3.js`. Theme and profile choices are saved in the browser.
+```bash
+python3 -m http.server 8000
+```
 
-## Media paths
+Then visit `http://localhost:8000`.
 
-- Award videos: `assets/videos/RSM-Amjid-Award-Recognition.mp4` and `assets/videos/Amjid-Award-Presentation.mp4`.
-- Current résumé target: `assets/resume/Muhammad-Amjid-Resume.pdf`.
+## Media storage and publishing
 
-Keep media at these exact paths so the existing profile controls and links continue to work.
+Local uploads are saved in IndexedDB on the current browser and device. They are not sent to Netlify, GitHub or a cloud service. Clearing browser site data may remove them. To make gallery items visible to all visitors, upload them to public storage and add their public URLs, or connect Supabase Storage or Cloudinary in a later phase.
+
+The site accepts JPG, PNG, WEBP, MP4 and WEBM uploads up to 150 MB each. Browser storage quotas vary by device and browser. Keep original copies of important files.
+
+## Content notes
+
+Career dates and titles follow the supplied portfolio brief. The Ismail Industries period is grouped into one entry with three internal roles. Education shows only the three requested qualifications. The portfolio does not expose private company data or claim that project demos exist before media is added.
+
+## Deployment
+
+The root remains a static site. Existing Netlify hosting can publish the repository root without a Next.js build step.
