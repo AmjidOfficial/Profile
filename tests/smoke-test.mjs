@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+const root = new URL("../", import.meta.url);
+const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+const css = readFileSync(new URL("../premium-v3.css", import.meta.url), "utf8");
+const js = readFileSync(new URL("../premium-v3.js", import.meta.url), "utf8");
+for (const text of ["MUHAMMAD AMJID","04 / MEDIA & FIELD GALLERY","SMART SALES","SALESPULSE AI","BAZAR360.ONLINE","N-LINK360","AUTOMATED DISTRIBUTOR LEDGER SYSTEM","WhatsApp","Ismail Industries Limited","MBA (Executive)","MA Islamic Studies","DAE Electrical"]) assert.ok(html.includes(text), "Missing required content: "+text);
+for (const removed of ["BA</h3>","SSC</h3>","AMJID/26","profileButton","Gravity","Editorial","Cinematic"]) assert.ok(!html.includes(removed), "Unexpected legacy content: "+removed);
+for (const id of ["themeToggle","mediaUploadForm","mediaFiles","dropZone","galleryGrid","mediaLightbox","fullscreenMedia","contactForm"]) assert.ok(html.includes('id="'+id+'"'), "Missing UI id: "+id);
+assert.ok(js.includes("indexedDB.open") && js.includes("createObjectURL") && js.includes("requestFullscreen"), "Media persistence, previews and fullscreen support should be present");
+assert.ok(css.includes("@media(max-width:600px)") && css.includes("prefers-reduced-motion"), "Responsive and reduced-motion styles should be present");
+execFileSync(process.execPath, ["--check", new URL("../premium-v3.js", import.meta.url).pathname], { stdio: "inherit" });
+console.log("Portfolio smoke checks passed.");
