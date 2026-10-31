@@ -1,5 +1,4 @@
 (()=>{"use strict";
-const PHOTO="https://amjidofficial.github.io/Profile/assets/images/Muhammad-Amjid.jpeg";
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const DB_NAME="amjid-portfolio-media",DB_VERSION=1,STORE="items",MAX_FILE=150*1024*1024;
 let db=null,selectedFiles=[],activeFilter="all",activeProject="",activeMediaId=null,activeObjectUrl=null,toastTimer=null,returnFocusElement=null,galleryObjectUrls=[];
