@@ -249,3 +249,51 @@ button,a,input,textarea,select{touch-action:manipulation}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Confirmed original portrait: preserve the source pixels and facial appearance. */
+.portrait-frame{
+  width:min(350px,80%);
+  padding:11px;
+  border-radius:34px;
+  background:linear-gradient(145deg,color-mix(in srgb,var(--surface-hi) 94%,var(--accent) 6%),var(--surface));
+  box-shadow:
+    1px 1px 0 rgba(255,255,255,.72),
+    20px 24px 0 color-mix(in srgb,var(--accent) 16%,transparent),
+    0 30px 75px var(--shadow-dark),
+    inset 0 0 0 1px color-mix(in srgb,var(--accent) 20%,transparent);
+}
+.portrait-frame img{
+  filter:none;
+  object-fit:cover;
+  object-position:center 18%;
+  background:var(--surface-hi);
+  border-radius:25px;
+}
+.portrait-halo{
+  width:min(40vw,470px);
+  background:
+    radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--accent) 13%,transparent) 0 38%,transparent 68%),
+    repeating-radial-gradient(circle,transparent 0 25px,color-mix(in srgb,var(--accent) 15%,transparent) 26px 27px);
+}
+.portrait-caption{
+  left:22px;
+  right:22px;
+  bottom:22px;
+  border-color:rgba(255,255,255,.3);
+  background:rgba(5,14,20,.68);
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+}
+body[data-theme="dark"] .portrait-frame{
+  border-color:color-mix(in srgb,var(--accent) 58%,var(--line));
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 16%,transparent),20px 24px 0 color-mix(in srgb,var(--accent) 18%,transparent),0 30px 75px var(--shadow-dark);
+}
+@media(max-width:600px){
+  .portrait-frame{width:min(305px,76vw);padding:9px;border-radius:28px}
+  .portrait-frame img{border-radius:20px}
+  .portrait-halo{width:min(78vw,430px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .portrait-halo,.floating-note{animation:none!important}
+  .portrait-frame{transition:none}
+}
