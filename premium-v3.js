@@ -62,7 +62,18 @@ document.getElementById("app").innerHTML=`
 <header class="topbar">
 <a class="brand" href="#home" aria-label="Muhammad Amjid home"><span class="brand-mark">MA</span><span>Muhammad Amjid<small>Sales · Strategy · Systems</small></span></a>
 <nav class="desktop-nav" aria-label="Main navigation">${[["about","About"],["focus","Expertise"],["work","Projects"],["career","Career"],["recognition","Recognition"],["achievements","Achievements"],["education","Education"],["contact","Contact"]].map(x=>'<a href="#'+x[0]+'">'+x[1]+'</a>').join("")}</nav>
-<div class="header-actions"><button class="control-btn" id="themeButton" type="button" aria-label="Change color theme"><span aria-hidden="true">◐</span><span id="themeLabel">Neumorphic</span></button><button class="control-btn" id="profileButton" type="button" aria-label="Change profile design"><span aria-hidden="true">✳</span><span id="profileLabel">Executive</span></button><button class="menu-btn" id="menuButton" type="button" aria-label="Open navigation" aria-controls="mobileNav" aria-expanded="false">☰</button></div>
+<div class="header-actions">
+ <div class="appearance-control"><button class="control-btn" id="themeButton" type="button" aria-label="Choose color theme" aria-controls="themeMenu" aria-expanded="false"><span aria-hidden="true">◐</span><span id="themeLabel">Neumorphic</span></button>
+ <div class="appearance-menu" id="themeMenu" role="group" aria-label="Color themes">
+ <button type="button" class="appearance-option" data-theme-choice="neumorphic" aria-pressed="true"><span class="option-dot neumorphic-dot"></span><span>Neumorphic</span><small>Soft raised surfaces</small></button>
+ <button type="button" class="appearance-option" data-theme-choice="dark" aria-pressed="false"><span class="option-dot dark-dot"></span><span>Midnight Dark</span><small>Deep blue and teal</small></button>
+ <button type="button" class="appearance-option" data-theme-choice="paper" aria-pressed="false"><span class="option-dot paper-dot"></span><span>Warm Light</span><small>Clean paper tones</small></button></div></div>
+ <div class="appearance-control"><button class="control-btn" id="profileButton" type="button" aria-label="Choose profile design" aria-controls="profileMenu" aria-expanded="false"><span aria-hidden="true">✳</span><span id="profileLabel">Executive</span></button>
+ <div class="appearance-menu profile-menu" id="profileMenu" role="group" aria-label="Profile designs">
+ <button type="button" class="appearance-option" data-profile-choice="gravity" aria-pressed="true"><span class="option-mark">01</span><span>Executive</span><small>Clean leadership profile</small></button>
+ <button type="button" class="appearance-option" data-profile-choice="editorial" aria-pressed="false"><span class="option-mark">02</span><span>Editorial</span><small>Refined editorial style</small></button>
+ <button type="button" class="appearance-option" data-profile-choice="cinematic" aria-pressed="false"><span class="option-mark">03</span><span>Cinematic</span><small>Bold cinematic style</small></button></div></div>
+ <button class="menu-btn" id="menuButton" type="button" aria-label="Open navigation" aria-controls="mobileNav" aria-expanded="false">☰</button></div>
 </header>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">${[["about","About"],["focus","Expertise"],["work","Projects"],["career","Career"],["recognition","Recognition"],["achievements","Achievements"],["education","Education"],["contact","Contact"]].map(x=>'<a href="#'+x[0]+'">'+x[1]+'</a>').join("")}</nav>
 <main id="main-content">
@@ -95,14 +106,21 @@ document.getElementById("app").innerHTML=`
 </main>
 <footer><span>© <span id="year"></span> Muhammad Amjid</span><span>FMCG · Distribution · Analytics · Digital Transformation</span><span>Peshawar, Pakistan</span></footer>
 </div>
-<div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" type="button" aria-label="Close details">×</button><div class="section-index" id="modalEyebrow">PROJECT DETAILS</div><h3 id="modalTitle">Project</h3><p id="modalText"></p></section></div>`;
+<div class="modal-backdrop" id="modalBackdrop" role="presentation"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" type="button" aria-label="Close details">×</button><div class="section-index" id="modalEyebrow">PROJECT DETAILS</div><h3 id="modalTitle">Project</h3><p id="modalText"></p></section></div>
+<a class="whatsapp-float" href="https://wa.me/923149198403" target="_blank" rel="noopener noreferrer" aria-label="Chat with Muhammad Amjid on WhatsApp" title="Chat on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 3.2A12.5 12.5 0 0 0 5.2 22.1L3.5 28.5l6.6-1.7A12.5 12.5 0 1 0 16 3.2Zm0 22.7a10.1 10.1 0 0 1-5.1-1.4l-.4-.2-3.9 1 1-3.8-.3-.4A10.2 10.2 0 1 1 16 25.9Zm5.6-7.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.3 8.3 0 0 1-2.5-1.5 9.4 9.4 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6s0-.4 0-.6-.7-1.7-1-2.3c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.2 1.4 3.4 2.4 3.7 5.8 5.1c.8.3 1.4.5 1.9.6.8.2 1.5.2 2.1.1.7-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4s-.3-.3-.6-.4Z"/></svg></a>`;
 $("#year").textContent=new Date().getFullYear();
 bind();applyAppearance();setupMotion();
 }
 let modalReturnFocus=null;
 function bind(){
-$("#themeButton").addEventListener("click",()=>{theme=themes[(themes.indexOf(theme)+1)%themes.length];applyAppearance()});
-$("#profileButton").addEventListener("click",()=>{profile=profiles[(profiles.indexOf(profile)+1)%profiles.length];applyAppearance()});
+const themeButton=$("#themeButton"),profileButton=$("#profileButton"),themeMenu=$("#themeMenu"),profileMenu=$("#profileMenu");
+const closeAppearanceMenus=()=>{themeMenu.classList.remove("open");profileMenu.classList.remove("open");themeButton.setAttribute("aria-expanded","false");profileButton.setAttribute("aria-expanded","false")};
+themeButton.addEventListener("click",e=>{e.stopPropagation();const open=!themeMenu.classList.contains("open");closeAppearanceMenus();if(open){themeMenu.classList.add("open");themeButton.setAttribute("aria-expanded","true")}});
+profileButton.addEventListener("click",e=>{e.stopPropagation();const open=!profileMenu.classList.contains("open");closeAppearanceMenus();if(open){profileMenu.classList.add("open");profileButton.setAttribute("aria-expanded","true")}});
+$$("[data-theme-choice]").forEach(b=>b.addEventListener("click",()=>{theme=b.dataset.themeChoice;applyAppearance();closeAppearanceMenus()}));
+$$("[data-profile-choice]").forEach(b=>b.addEventListener("click",()=>{profile=b.dataset.profileChoice;applyAppearance();closeAppearanceMenus()}));
+document.addEventListener("click",e=>{if(!e.target.closest(".appearance-control"))closeAppearanceMenus()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAppearanceMenus()});
 const menu=$("#menuButton"),mobile=$("#mobileNav");menu.addEventListener("click",()=>{const open=mobile.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");menu.textContent=open?"×":"☰"});
 $$(".mobile-nav a").forEach(a=>a.addEventListener("click",()=>{mobile.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰"}));
 $("[data-case]").forEach(b=>b.addEventListener("click",()=>{modalReturnFocus=b;openCase(b.dataset.case)}));
