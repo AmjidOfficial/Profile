@@ -4,11 +4,11 @@ One master portfolio for GitHub Pages and Netlify. Both hosts should deploy the 
 
 ## Default experience
 
-- **Default colour theme:** Midnight Dark
-- **Default profile design:** Cinematic
+- **Default colour theme:** Dark
+- **Default profile design:** Gravity
 - **Other colour themes:** Neumorphic, Warm Paper, Cinematic
-- **Other profile designs:** Executive, Editorial
-- Visitors can change the theme and profile from the selectors. Their choices are saved in the browser. The new Midnight Dark + Cinematic default is applied once as a versioned default update, then visitor choices are remembered.
+- **Other profile designs:** Editorial, Cinematic
+- Visitors can change the theme and profile from the selectors. Their choices are saved in the browser. The Dark + Gravity default is applied once as a versioned default update, then visitor choices are remembered.
 
 ## Live profiles
 
