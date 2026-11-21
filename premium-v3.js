@@ -53,7 +53,9 @@ const setStore=(key,value)=>{try{localStorage.setItem(key,value)}catch(_){}};
 const themes=["neumorphic","dark","paper","cinematic"],profiles=["gravity","editorial","cinematic"];
 const themeLabels={neumorphic:"Neumorphic",dark:"Midnight",paper:"Warm Paper",cinematic:"Cinematic"};
 const profileLabels={gravity:"Executive",editorial:"Editorial",cinematic:"Cinematic"};
-let theme=safeGet("amjid-theme",themes,"neumorphic"),profile=safeGet("amjid-profile",profiles,"gravity");
+const appearanceDefaultsVersion="midnight-cinematic-v1";
+let theme=safeGet("amjid-theme",themes,"dark"),profile=safeGet("amjid-profile",profiles,"cinematic");
+try{if(localStorage.getItem("amjid-appearance-defaults")!==appearanceDefaultsVersion){theme="dark";profile="cinematic";localStorage.setItem("amjid-appearance-defaults",appearanceDefaultsVersion);setStore("amjid-theme",theme);setStore("amjid-profile",profile)}}catch(_){theme="dark";profile="cinematic"}
 function applyAppearance(){document.body.dataset.theme=theme==="neumorphic"?"neumorphic":theme;document.body.dataset.profile=profile;$$("[data-theme-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.themeChoice===theme))});$$("[data-profile-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.profileChoice===profile))});$("#themeLabel").textContent=themeLabels[theme];$("#profileLabel").textContent=profileLabels[profile];setStore("amjid-theme",theme);setStore("amjid-profile",profile)}
 function render(){
 document.getElementById("app").innerHTML=`
