@@ -44,7 +44,7 @@ const DATA={
   {name:"DAE Electrical",school:"BTE KPK",year:"2004–2007"},
   {name:"SSC",school:"BISE Peshawar",year:"2004"}
  ],
- skills:["FMCG Sales Systems","Sales Forecasting","Demand Planning","CRM Platforms","Excel & Advanced Reporting","AI-Based Analytics","Consumer Health OTC Exposure","Trade Marketing","Category Development","Gemini AI Studio","Field Force Tracking","KPI Dashboards","Sales Automation","Consumer Health OTC Exposure","Trade Marketing","Category Development","Numeric Distribution","Weighted Distribution","Retail Execution","Route-to-Market Optimization","Primary Sales Planning","Secondary Sales Tracking","Category Development","Distributor Management","Field Force Leadership","Territory Expansion"]
+ skills:["FMCG Sales Systems","Sales Forecasting Tools","Demand Planning Systems","CRM Platforms","Excel & Advanced Reporting","AI-Based Analytics (Gemini AI Studio)","Consumer Health OTC Exposure","Field Force Tracking Systems","KPI Dashboards","Sales Automation Tools","Numeric Distribution","Weighted Distribution","Retail Execution Excellence","Route-to-Market (RTM) Optimization","Primary Sales Planning","Secondary Sales Tracking","Category Development","Distributor Management","Field Force Leadership","Trade Marketing","Territory Expansion"]
 };
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
