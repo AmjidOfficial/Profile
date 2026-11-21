@@ -38,11 +38,11 @@ const DATA={
   {period:"Jan–Mar 2011",title:"Outstanding Performance SR",detail:"Sales Representative quarterly performance recognition."}
  ],
  education:[
-  {name:"MBA (Executive)",school:"Gomal University",year:"2018–2020"},
+  {name:"MBA (Executive)",school:"Gomal University",year:"2018–2022"},
   {name:"MA Islamic Studies",school:"Bacha Khan University",year:"2018"},
   {name:"BA",school:"University of Peshawar",year:"2015–2016"},
   {name:"DAE Electrical",school:"BTE KPK",year:"2004–2007"},
-  {name:"SSC",school:"BISE Peshawar",year:"2004"}
+  {name:"SSC",school:"BISE Peshawar",year:"2002–2004"}
  ],
  skills:["FMCG Sales Systems","Sales Forecasting Tools","Demand Planning Systems","CRM Platforms","Excel & Advanced Reporting","AI-Based Analytics (Gemini AI Studio)","Consumer Health OTC Exposure","Field Force Tracking Systems","KPI Dashboards","Sales Automation Tools","Numeric Distribution","Weighted Distribution","Retail Execution Excellence","Route-to-Market (RTM) Optimization","Primary Sales Planning","Secondary Sales Tracking","Category Development","Distributor Management","Field Force Leadership","Trade Marketing","Territory Expansion"]
 };
