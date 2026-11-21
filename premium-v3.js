@@ -1,6 +1,6 @@
 (()=>{"use strict";
 const DATA={
- name:"Muhammad Amjid",title:"Senior FMCG Sales Leader",location:"Peshawar, Pakistan",email:"amjid.psh@gmail.com",phone:"+92 314 9198403",
+ name:"Muhammad Amjid",title:"Senior FMCG Sales Leader | Regional Sales Manager – North",location:"Peshawar, Pakistan",email:"amjid.psh@gmail.com",phone:"+92 314 9198403",
  photo:"assets/images/Muhammad-Amjid.jpeg",resume:"assets/resume/Muhammad-Amjid-Resume.pdf",
  linkedin:"https://www.linkedin.com/in/amjid1988/",github:"https://github.com/AmjidOfficial/",
  jobs:[
@@ -44,7 +44,7 @@ const DATA={
   {name:"DAE Electrical",school:"BTE KPK",year:"2004–2007"},
   {name:"SSC",school:"BISE Peshawar",year:"2004"}
  ],
- skills:["FMCG Sales Systems","Sales Forecasting","Demand Planning","CRM Platforms","Excel & Advanced Reporting","AI-Based Analytics","Gemini AI Studio","Field Force Tracking","KPI Dashboards","Sales Automation","Numeric Distribution","Weighted Distribution","Retail Execution","Route-to-Market Optimization","Primary Sales Planning","Secondary Sales Tracking","Category Development","Distributor Management","Field Force Leadership","Territory Expansion"]
+ skills:["FMCG Sales Systems","Sales Forecasting","Demand Planning","CRM Platforms","Excel & Advanced Reporting","AI-Based Analytics","Consumer Health OTC Exposure","Trade Marketing","Category Development","Gemini AI Studio","Field Force Tracking","KPI Dashboards","Sales Automation","Consumer Health OTC Exposure","Trade Marketing","Category Development","Numeric Distribution","Weighted Distribution","Retail Execution","Route-to-Market Optimization","Primary Sales Planning","Secondary Sales Tracking","Category Development","Distributor Management","Field Force Leadership","Territory Expansion"]
 };
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -53,9 +53,9 @@ const setStore=(key,value)=>{try{localStorage.setItem(key,value)}catch(_){}};
 const themes=["neumorphic","dark","paper","cinematic"],profiles=["gravity","editorial","cinematic"];
 const themeLabels={neumorphic:"Neumorphic",dark:"Dark",paper:"Warm Light",cinematic:"Cinematic"};
 const profileLabels={gravity:"Gravity",editorial:"Editorial",cinematic:"Cinematic"};
-const appearanceDefaultsVersion="gravity-dark-v4";
+const appearanceDefaultsVersion="gravity-dark-v5";
 let theme=safeGet("amjid-theme",themes,"dark"),profile=safeGet("amjid-profile",profiles,"gravity");
-try{if(localStorage.getItem("amjid-appearance-defaults")!==appearanceDefaultsVersion){theme="dark";profile="cinematic";localStorage.setItem("amjid-appearance-defaults",appearanceDefaultsVersion);setStore("amjid-theme",theme);setStore("amjid-profile",profile)}}catch(_){theme="dark";profile="cinematic"}
+try{if(localStorage.getItem("amjid-appearance-defaults")!==appearanceDefaultsVersion){theme="dark";profile="gravity";localStorage.setItem("amjid-appearance-defaults",appearanceDefaultsVersion);setStore("amjid-theme",theme);setStore("amjid-profile",profile)}}catch(_){theme="dark";profile="gravity"}
 function applyAppearance(){document.body.dataset.theme=theme==="neumorphic"?"neumorphic":theme;document.body.dataset.profile=profile;$$("[data-theme-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.themeChoice===theme))});$$("[data-profile-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.profileChoice===profile))});$("#themeLabel").textContent=themeLabels[theme];$("#profileLabel").textContent=profileLabels[profile];setStore("amjid-theme",theme);setStore("amjid-profile",profile)}
 function render(){
 document.getElementById("app").innerHTML=`
