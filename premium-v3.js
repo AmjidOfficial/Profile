@@ -50,8 +50,8 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.query
 const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeGet=(key,allowed,fallback)=>{try{const value=localStorage.getItem(key);return allowed.includes(value)?value:fallback}catch(_){return fallback}};
 const setStore=(key,value)=>{try{localStorage.setItem(key,value)}catch(_){}};
-const themes=["neumorphic","dark","paper"],profiles=["gravity","editorial","cinematic"];
-const themeLabels={neumorphic:"Neumorphic",dark:"Midnight",paper:"Warm Paper"};
+const themes=["neumorphic","dark","paper","cinematic"],profiles=["gravity","editorial","cinematic"];
+const themeLabels={neumorphic:"Neumorphic",dark:"Midnight",paper:"Warm Paper",cinematic:"Cinematic"};
 const profileLabels={gravity:"Executive",editorial:"Editorial",cinematic:"Cinematic"};
 let theme=safeGet("amjid-theme",themes,"neumorphic"),profile=safeGet("amjid-profile",profiles,"gravity");
 function applyAppearance(){document.body.dataset.theme=theme==="neumorphic"?"neumorphic":theme;document.body.dataset.profile=profile;$$("[data-theme-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.themeChoice===theme))});$$("[data-profile-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.profileChoice===profile))});$("#themeLabel").textContent=themeLabels[theme];$("#profileLabel").textContent=profileLabels[profile];setStore("amjid-theme",theme);setStore("amjid-profile",profile)}
@@ -67,7 +67,8 @@ document.getElementById("app").innerHTML=`
  <div class="appearance-menu" id="themeMenu" role="group" aria-label="Color themes">
  <button type="button" class="appearance-option" data-theme-choice="neumorphic" aria-pressed="true"><span class="option-dot neumorphic-dot"></span><span>Neumorphic</span><small>Soft raised surfaces</small></button>
  <button type="button" class="appearance-option" data-theme-choice="dark" aria-pressed="false"><span class="option-dot dark-dot"></span><span>Midnight Dark</span><small>Deep blue and teal</small></button>
- <button type="button" class="appearance-option" data-theme-choice="paper" aria-pressed="false"><span class="option-dot paper-dot"></span><span>Warm Light</span><small>Clean paper tones</small></button></div></div>
+ <button type="button" class="appearance-option" data-theme-choice="paper" aria-pressed="false"><span class="option-dot paper-dot"></span><span>Warm Light</span><small>Clean paper tones</small></button>
+ <button type="button" class="appearance-option" data-theme-choice="cinematic" aria-pressed="false"><span class="option-dot cinematic-dot"></span><span>Cinematic</span><small>Deep charcoal and warm gold</small></button></div></div>
  <div class="appearance-control"><button class="control-btn" id="profileButton" type="button" aria-label="Choose profile design" aria-controls="profileMenu" aria-expanded="false"><span aria-hidden="true">✳</span><span id="profileLabel">Executive</span></button>
  <div class="appearance-menu profile-menu" id="profileMenu" role="group" aria-label="Profile designs">
  <button type="button" class="appearance-option" data-profile-choice="gravity" aria-pressed="true"><span class="option-mark">01</span><span>Executive</span><small>Clean leadership profile</small></button>
