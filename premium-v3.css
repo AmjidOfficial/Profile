@@ -6,6 +6,7 @@ body[data-theme="dark"]{color-scheme:dark;--bg:#080e13;--surface:#101a22;--surfa
 body[data-theme="paper"]{color-scheme:light;--bg:#f3efe7;--surface:#f8f4ec;--surface-hi:#fffdf7;--ink:#28251f;--muted:#777064;--line:rgba(40,37,31,.15);--accent:#6557b6;--gold:#b58a37;--shadow-dark:rgba(75,63,44,.14);--shadow-light:#fffdf7}
 body[data-profile="cinematic"]{--accent:#d5a451;--gold:#f0cb81}
 body[data-profile="editorial"]{--accent:#6e5cc8;--gold:#ad8539}
+body[data-theme="cinematic"]{color-scheme:dark;--bg:#090807;--surface:#151310;--surface-hi:#1d1913;--ink:#f3eee5;--muted:#a7a097;--line:rgba(243,238,229,.13);--accent:#c89b57;--gold:#e4b963;--shadow-dark:rgba(0,0,0,.62);--shadow-light:rgba(255,255,255,.035)}
 a{color:inherit;text-decoration:none}
 button,input,textarea{font:inherit}
 button,a,input,textarea{touch-action:manipulation}
@@ -306,7 +307,7 @@ body[data-theme="dark"] .portrait-frame{
 .appearance-option:hover,.appearance-option[aria-pressed="true"]{border-color:color-mix(in srgb,var(--accent) 35%,var(--line));background:color-mix(in srgb,var(--accent) 9%,var(--surface))}
 .appearance-option small{grid-column:2;color:var(--muted);font-size:9px;font-weight:500;line-height:1.4}
 .option-dot{grid-row:1/3;width:19px;height:19px;border-radius:50%;border:1px solid var(--line);box-shadow:inset 2px 2px 4px rgba(0,0,0,.14)}
-.neumorphic-dot{background:linear-gradient(135deg,#edf2f0,#b8c4c1)}.dark-dot{background:linear-gradient(135deg,#1c3440,#071016)}.paper-dot{background:linear-gradient(135deg,#fffdf7,#d8cdbb)}
+.neumorphic-dot{background:linear-gradient(135deg,#edf2f0,#b8c4c1)}.dark-dot{background:linear-gradient(135deg,#1c3440,#071016)}.paper-dot{background:linear-gradient(135deg,#fffdf7,#d8cdbb)}.cinematic-dot{background:linear-gradient(135deg,#c89b57,#090807)}
 .option-mark{grid-row:1/3;display:grid;place-items:center;width:23px;height:23px;border-radius:8px;background:color-mix(in srgb,var(--accent) 13%,var(--surface));color:var(--accent);font:800 9px "IBM Plex Mono",monospace}
 .whatsapp-float{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));z-index:900;display:grid;place-items:center;width:58px;height:58px;border:2px solid rgba(255,255,255,.72);border-radius:50%;background:#20c765;color:#fff;box-shadow:0 9px 28px rgba(0,0,0,.24);transition:transform .2s,box-shadow .2s}
 .whatsapp-float:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 13px 34px rgba(0,0,0,.3)}.whatsapp-float:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.whatsapp-float svg{display:block;width:31px;height:31px;fill:currentColor}
