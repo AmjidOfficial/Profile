@@ -68,7 +68,7 @@ document.getElementById("app").innerHTML=`
  <div class="appearance-control"><button class="control-btn" id="themeButton" type="button" aria-label="Choose color theme" aria-controls="themeMenu" aria-expanded="false"><span aria-hidden="true">◐</span><span id="themeLabel">Midnight Dark</span></button>
  <div class="appearance-menu" id="themeMenu" role="group" aria-label="Color themes">
  <button type="button" class="appearance-option" data-theme-choice="neumorphic" aria-pressed="false"><span class="option-dot neumorphic-dot"></span><span>Neumorphic</span><small>Soft raised surfaces</small></button>
- <button type="button" class="appearance-option" data-theme-choice="dark" aria-pressed="true"><span class="option-dot dark-dot"></span><span>Midnight Dark</span><small>Deep blue and teal</small></button>
+ <button type="button" class="appearance-option" data-theme-choice="dark" aria-pressed="true"><span class="option-dot dark-dot"></span><span>Dark</span><small>Deep blue and teal</small></button>
  <button type="button" class="appearance-option" data-theme-choice="paper" aria-pressed="false"><span class="option-dot paper-dot"></span><span>Warm Light</span><small>Clean paper tones</small></button>
  <button type="button" class="appearance-option" data-theme-choice="cinematic" aria-pressed="false"><span class="option-dot cinematic-dot"></span><span>Cinematic</span><small>Deep charcoal and warm gold</small></button></div></div>
  <div class="appearance-control"><button class="control-btn" id="profileButton" type="button" aria-label="Choose profile design" aria-controls="profileMenu" aria-expanded="false"><span aria-hidden="true">✳</span><span id="profileLabel">Cinematic</span></button>
