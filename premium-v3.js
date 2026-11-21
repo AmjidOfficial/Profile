@@ -51,9 +51,9 @@ const esc=(s)=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt
 const safeGet=(key,allowed,fallback)=>{try{const value=localStorage.getItem(key);return allowed.includes(value)?value:fallback}catch(_){return fallback}};
 const setStore=(key,value)=>{try{localStorage.setItem(key,value)}catch(_){}};
 const themes=["neumorphic","dark","paper","cinematic"],profiles=["gravity","editorial","cinematic"];
-const themeLabels={neumorphic:"Neumorphic",dark:"Midnight",paper:"Warm Paper",cinematic:"Cinematic"};
+const themeLabels={neumorphic:"Neumorphic",dark:"Midnight Dark",paper:"Warm Light",cinematic:"Cinematic"};
 const profileLabels={gravity:"Executive",editorial:"Editorial",cinematic:"Cinematic"};
-const appearanceDefaultsVersion="midnight-cinematic-v1";
+const appearanceDefaultsVersion="midnight-cinematic-v2";
 let theme=safeGet("amjid-theme",themes,"dark"),profile=safeGet("amjid-profile",profiles,"cinematic");
 try{if(localStorage.getItem("amjid-appearance-defaults")!==appearanceDefaultsVersion){theme="dark";profile="cinematic";localStorage.setItem("amjid-appearance-defaults",appearanceDefaultsVersion);setStore("amjid-theme",theme);setStore("amjid-profile",profile)}}catch(_){theme="dark";profile="cinematic"}
 function applyAppearance(){document.body.dataset.theme=theme==="neumorphic"?"neumorphic":theme;document.body.dataset.profile=profile;$$("[data-theme-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.themeChoice===theme))});$$("[data-profile-choice]").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.profileChoice===profile))});$("#themeLabel").textContent=themeLabels[theme];$("#profileLabel").textContent=profileLabels[profile];setStore("amjid-theme",theme);setStore("amjid-profile",profile)}
@@ -65,17 +65,17 @@ document.getElementById("app").innerHTML=`
 <a class="brand" href="#home" aria-label="Muhammad Amjid home"><span class="brand-mark">MA</span><span>Muhammad Amjid<small>Sales · Strategy · Systems</small></span></a>
 <nav class="desktop-nav" aria-label="Main navigation">${[["about","About"],["focus","Expertise"],["work","Projects"],["career","Career"],["recognition","Recognition"],["achievements","Achievements"],["education","Education"],["contact","Contact"]].map(x=>'<a href="#'+x[0]+'">'+x[1]+'</a>').join("")}</nav>
 <div class="header-actions">
- <div class="appearance-control"><button class="control-btn" id="themeButton" type="button" aria-label="Choose color theme" aria-controls="themeMenu" aria-expanded="false"><span aria-hidden="true">◐</span><span id="themeLabel">Neumorphic</span></button>
+ <div class="appearance-control"><button class="control-btn" id="themeButton" type="button" aria-label="Choose color theme" aria-controls="themeMenu" aria-expanded="false"><span aria-hidden="true">◐</span><span id="themeLabel">Midnight Dark</span></button>
  <div class="appearance-menu" id="themeMenu" role="group" aria-label="Color themes">
- <button type="button" class="appearance-option" data-theme-choice="neumorphic" aria-pressed="true"><span class="option-dot neumorphic-dot"></span><span>Neumorphic</span><small>Soft raised surfaces</small></button>
- <button type="button" class="appearance-option" data-theme-choice="dark" aria-pressed="false"><span class="option-dot dark-dot"></span><span>Midnight Dark</span><small>Deep blue and teal</small></button>
+ <button type="button" class="appearance-option" data-theme-choice="neumorphic" aria-pressed="false"><span class="option-dot neumorphic-dot"></span><span>Neumorphic</span><small>Soft raised surfaces</small></button>
+ <button type="button" class="appearance-option" data-theme-choice="dark" aria-pressed="true"><span class="option-dot dark-dot"></span><span>Midnight Dark</span><small>Deep blue and teal</small></button>
  <button type="button" class="appearance-option" data-theme-choice="paper" aria-pressed="false"><span class="option-dot paper-dot"></span><span>Warm Light</span><small>Clean paper tones</small></button>
  <button type="button" class="appearance-option" data-theme-choice="cinematic" aria-pressed="false"><span class="option-dot cinematic-dot"></span><span>Cinematic</span><small>Deep charcoal and warm gold</small></button></div></div>
- <div class="appearance-control"><button class="control-btn" id="profileButton" type="button" aria-label="Choose profile design" aria-controls="profileMenu" aria-expanded="false"><span aria-hidden="true">✳</span><span id="profileLabel">Executive</span></button>
+ <div class="appearance-control"><button class="control-btn" id="profileButton" type="button" aria-label="Choose profile design" aria-controls="profileMenu" aria-expanded="false"><span aria-hidden="true">✳</span><span id="profileLabel">Cinematic</span></button>
  <div class="appearance-menu profile-menu" id="profileMenu" role="group" aria-label="Profile designs">
- <button type="button" class="appearance-option" data-profile-choice="gravity" aria-pressed="true"><span class="option-mark">01</span><span>Executive</span><small>Clean leadership profile</small></button>
+ <button type="button" class="appearance-option" data-profile-choice="gravity" aria-pressed="false"><span class="option-mark">01</span><span>Executive</span><small>Clean leadership profile</small></button>
  <button type="button" class="appearance-option" data-profile-choice="editorial" aria-pressed="false"><span class="option-mark">02</span><span>Editorial</span><small>Refined editorial style</small></button>
- <button type="button" class="appearance-option" data-profile-choice="cinematic" aria-pressed="false"><span class="option-mark">03</span><span>Cinematic</span><small>Bold cinematic style</small></button></div></div>
+ <button type="button" class="appearance-option" data-profile-choice="cinematic" aria-pressed="true"><span class="option-mark">03</span><span>Cinematic</span><small>Bold cinematic style</small></button></div></div>
  <button class="menu-btn" id="menuButton" type="button" aria-label="Open navigation" aria-controls="mobileNav" aria-expanded="false">☰</button></div>
 </header>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">${[["about","About"],["focus","Expertise"],["work","Projects"],["career","Career"],["recognition","Recognition"],["achievements","Achievements"],["education","Education"],["contact","Contact"]].map(x=>'<a href="#'+x[0]+'">'+x[1]+'</a>').join("")}</nav>
