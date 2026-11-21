@@ -16,7 +16,21 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check Firebase deployment settings
+        id: firebase-config
+        env:
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          if [ -n "$FIREBASE_PROJECT_ID" ] && [ -n "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Firebase deployment skipped. Add FIREBASE_PROJECT_ID and FIREBASE_SERVICE_ACCOUNT repository secrets to enable deployment."
+          fi
+
       - name: Deploy live site to Firebase Hosting
+        if: steps.firebase-config.outputs.configured == 'true'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
