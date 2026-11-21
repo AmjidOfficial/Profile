@@ -41,3 +41,25 @@ The live entry point is `index.html`, which loads `premium-v3.css` and `premium-
 ## Custom domain
 
 A custom domain can be connected to GitHub Pages and Netlify while keeping both current hostnames available as redirects or aliases. Add the domain only after its exact name is selected and registered. Update the canonical URL, Open Graph URL, sitemap and DNS records as part of that change.
+
+
+## Firebase Hosting (free Spark plan)
+
+The site is a static portfolio and can also be deployed to Firebase Hosting. The Firebase config publishes the repository root so the existing `index.html`, scripts, styles and assets are served without a build step.
+
+### One-time setup
+
+1. Create a Firebase project at https://console.firebase.google.com/ and keep it on the **Spark (no-cost)** plan.
+2. In Project settings, create a service account key for GitHub Actions. Give the service account the Firebase Hosting Admin role.
+3. In this GitHub repository, open **Settings → Secrets and variables → Actions** and add:
+   - `FIREBASE_PROJECT_ID`: the Firebase project ID.
+   - `FIREBASE_SERVICE_ACCOUNT`: the full JSON key content for the service account.
+4. Push to `main` or run the **Deploy to Firebase Hosting** workflow manually from the Actions tab.
+
+After a successful deployment, Firebase provides the site's `https://PROJECT_ID.web.app` address and HTTPS certificate.
+
+### Free-plan limits
+
+Firebase Hosting Spark currently includes up to **10 GB stored content** and **360 MB/day data transfer** at no charge. A payment method is not needed for Spark. If the daily transfer limit is exceeded, Hosting may be disabled for the rest of that month. Keep an eye on the Firebase Hosting usage page. This is free within the published limits, not unlimited hosting.
+
+Netlify and GitHub Pages configuration remain in place. Firebase is an additional deployment target; it does not remove the existing live sites.
